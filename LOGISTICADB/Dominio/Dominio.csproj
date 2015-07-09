@@ -63,9 +63,37 @@
     <Compile Include="Dtos\unidad_medidaDTO.cs" />
     <Compile Include="Dtos\usuarioDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Querys\Almacen\IAlmacenQuery.cs" />
+    <Compile Include="Querys\Almacen\AlmacenQuery.cs" />
+    <Compile Include="Querys\Catalogo\ICatalogoQuery.cs" />
+    <Compile Include="Querys\Catalogo\CatalogoQuery.cs" />
+    <Compile Include="Querys\Departamento\IDepartamentoQuery.cs" />
+    <Compile Include="Querys\Departamento\DepartamentoQuery.cs" />
+    <Compile Include="Querys\Entidad\IEntidadQuery.cs" />
+    <Compile Include="Querys\Entidad\EntidadQuery.cs" />
+    <Compile Include="Querys\Proyecto\IProyectoQuery.cs" />
+    <Compile Include="Querys\Proyecto\ProyectoQuery.cs" />
     <Compile Include="Querys\Querys.cs" />
+    <Compile Include="Querys\Requerimiento\IRequerimientoQuery.cs" />
+    <Compile Include="Querys\Requerimiento\RequerimientoQuery.cs" />
+    <Compile Include="Querys\Requerimiento_Detalle\IRequerimiento_DetalleQuery.cs" />
+    <Compile Include="Querys\Requerimiento_Detalle\Requerimiento_DetalleQuery.cs" />
+    <Compile Include="Querys\Unidad_Medida\IUnidad_MedidaQuery.cs" />
+    <Compile Include="Querys\Unidad_Medida\Unidad_MedidaQuery.cs" />
+    <Compile Include="Querys\Usuario\IUsuarioQuery.cs" />
+    <Compile Include="Querys\Usuario\UsuarioQuery.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="tmp\Almacen\" />
+    <Folder Include="tmp\Catalogo\" />
+    <Folder Include="tmp\Departamento\" />
+    <Folder Include="tmp\Entidad\" />
+    <Folder Include="tmp\Proyecto\" />
+    <Folder Include="tmp\Requerimiento\" />
+    <Folder Include="tmp\Requerimiento_Detalle\" />
+    <Folder Include="tmp\Unidad_Medida\" />
+    <Folder Include="tmp\Usuario\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PersistenciaDatos\PersistenciaDatos.csproj">
       <Project>{DD64A1C0-2A58-48B8-B1B8-CB4CE7BB8C59}</Project>
