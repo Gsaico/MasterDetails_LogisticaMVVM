@@ -22,22 +22,7 @@ namespace Dominio.Convertidores
     /// </summary>
     public static partial class requerimientoAssembler
     {
-        /// <summary>
-        /// Invoked when <see cref="ToDTO"/> operation is about to return.
-        /// </summary>
-        /// <param name="dto"><see cref="requerimientoDTO"/> converted from <see cref="requerimiento"/>.</param>
-        static partial void OnDTO(this requerimiento entity, requerimientoDTO dto);
-
-        /// <summary>
-        /// Invoked when <see cref="ToEntity"/> operation is about to return.
-        /// </summary>
-        /// <param name="entity"><see cref="requerimiento"/> converted from <see cref="requerimientoDTO"/>.</param>
-        static partial void OnEntity(this requerimientoDTO dto, requerimiento entity);
-
-        /// <summary>
-        /// Converts this instance of <see cref="requerimientoDTO"/> to an instance of <see cref="requerimiento"/>.
-        /// </summary>
-        /// <param name="dto"><see cref="requerimientoDTO"/> to convert.</param>
+      
         public static requerimiento ToEntity(this requerimientoDTO dto)
         {
             if (dto == null) return null;
@@ -52,7 +37,7 @@ namespace Dominio.Convertidores
             entity.estado = dto.estado;
             entity.observaciones_requerimiento = dto.observaciones_requerimiento;
 
-            dto.OnEntity(entity);
+          
 
             return entity;
         }
@@ -75,7 +60,7 @@ namespace Dominio.Convertidores
             dto.estado = entity.estado;
             dto.observaciones_requerimiento = entity.observaciones_requerimiento;
 
-            entity.OnDTO(dto);
+          
 
             return dto;
         }
@@ -102,6 +87,18 @@ namespace Dominio.Convertidores
             if (entities == null) return null;
 
             return entities.Select(e => e.ToDTO()).ToList();
+        }
+
+        public static void Actualizar(Dominio.Dtos.requerimientoDTO dto, PersistenciaDatos.requerimiento entity)
+        {
+            entity.ID_Requerimiento = dto.ID_Requerimiento;
+            entity.ID_Usuario = dto.ID_Usuario;
+            entity.ID_Almacen = dto.ID_Almacen;
+            entity.fecha = dto.fecha;
+            entity.detalle_requerimiento = dto.detalle_requerimiento;
+            entity.estado = dto.estado;
+            entity.observaciones_requerimiento = dto.observaciones_requerimiento;
+
         }
 
     }

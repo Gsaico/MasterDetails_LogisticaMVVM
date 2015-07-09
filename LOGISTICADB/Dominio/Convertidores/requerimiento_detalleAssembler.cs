@@ -22,22 +22,7 @@ namespace Dominio.Convertidores
     /// </summary>
     public static partial class requerimiento_detalleAssembler
     {
-        /// <summary>
-        /// Invoked when <see cref="ToDTO"/> operation is about to return.
-        /// </summary>
-        /// <param name="dto"><see cref="requerimiento_detalleDTO"/> converted from <see cref="requerimiento_detalle"/>.</param>
-        static partial void OnDTO(this requerimiento_detalle entity, requerimiento_detalleDTO dto);
-
-        /// <summary>
-        /// Invoked when <see cref="ToEntity"/> operation is about to return.
-        /// </summary>
-        /// <param name="entity"><see cref="requerimiento_detalle"/> converted from <see cref="requerimiento_detalleDTO"/>.</param>
-        static partial void OnEntity(this requerimiento_detalleDTO dto, requerimiento_detalle entity);
-
-        /// <summary>
-        /// Converts this instance of <see cref="requerimiento_detalleDTO"/> to an instance of <see cref="requerimiento_detalle"/>.
-        /// </summary>
-        /// <param name="dto"><see cref="requerimiento_detalleDTO"/> to convert.</param>
+       
         public static requerimiento_detalle ToEntity(this requerimiento_detalleDTO dto)
         {
             if (dto == null) return null;
@@ -51,7 +36,7 @@ namespace Dominio.Convertidores
             entity.cantidad = dto.cantidad;
             entity.valor_referencial = dto.valor_referencial;
 
-            dto.OnEntity(entity);
+          
 
             return entity;
         }
@@ -73,7 +58,7 @@ namespace Dominio.Convertidores
             dto.cantidad = entity.cantidad;
             dto.valor_referencial = entity.valor_referencial;
 
-            entity.OnDTO(dto);
+           
 
             return dto;
         }
@@ -101,6 +86,15 @@ namespace Dominio.Convertidores
 
             return entities.Select(e => e.ToDTO()).ToList();
         }
+        public static void Actualizar(Dominio.Dtos.requerimiento_detalleDTO dto, PersistenciaDatos.requerimiento_detalle entity)
+        {
+            entity.ID_RequerimientoDetalle = dto.ID_RequerimientoDetalle;
+            entity.ID_Requerimiento = dto.ID_Requerimiento;
+            entity.ID_Catalogo = dto.ID_Catalogo;
+            entity.ID_UnidadMedida = dto.ID_UnidadMedida;
+            entity.cantidad = dto.cantidad;
+            entity.valor_referencial = dto.valor_referencial;
 
+        }
     }
 }

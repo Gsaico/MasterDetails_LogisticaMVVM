@@ -22,22 +22,7 @@ namespace Dominio.Convertidores
     /// </summary>
     public static partial class proyectoAssembler
     {
-        /// <summary>
-        /// Invoked when <see cref="ToDTO"/> operation is about to return.
-        /// </summary>
-        /// <param name="dto"><see cref="proyectoDTO"/> converted from <see cref="proyecto"/>.</param>
-        static partial void OnDTO(this proyecto entity, proyectoDTO dto);
-
-        /// <summary>
-        /// Invoked when <see cref="ToEntity"/> operation is about to return.
-        /// </summary>
-        /// <param name="entity"><see cref="proyecto"/> converted from <see cref="proyectoDTO"/>.</param>
-        static partial void OnEntity(this proyectoDTO dto, proyecto entity);
-
-        /// <summary>
-        /// Converts this instance of <see cref="proyectoDTO"/> to an instance of <see cref="proyecto"/>.
-        /// </summary>
-        /// <param name="dto"><see cref="proyectoDTO"/> to convert.</param>
+       
         public static proyecto ToEntity(this proyectoDTO dto)
         {
             if (dto == null) return null;
@@ -50,7 +35,7 @@ namespace Dominio.Convertidores
             entity.nombre = dto.nombre;
             entity.estado = dto.estado;
 
-            dto.OnEntity(entity);
+           
 
             return entity;
         }
@@ -71,7 +56,7 @@ namespace Dominio.Convertidores
             dto.nombre = entity.nombre;
             dto.estado = entity.estado;
 
-            entity.OnDTO(dto);
+         
 
             return dto;
         }
@@ -98,6 +83,16 @@ namespace Dominio.Convertidores
             if (entities == null) return null;
 
             return entities.Select(e => e.ToDTO()).ToList();
+        }
+
+        public static void Actualizar(Dominio.Dtos.proyectoDTO dto, PersistenciaDatos.proyecto entity)
+        {
+            entity.ID_Proyecto = dto.ID_Proyecto;
+            entity.ID_Usuario = dto.ID_Usuario;
+            entity.year_ejec = dto.year_ejec;
+            entity.nombre = dto.nombre;
+            entity.estado = dto.estado;
+
         }
 
     }

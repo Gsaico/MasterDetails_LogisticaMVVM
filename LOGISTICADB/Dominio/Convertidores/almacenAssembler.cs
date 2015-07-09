@@ -22,22 +22,7 @@ namespace Dominio.Convertidores
     /// </summary>
     public static partial class almacenAssembler
     {
-        /// <summary>
-        /// Invoked when <see cref="ToDTO"/> operation is about to return.
-        /// </summary>
-        /// <param name="dto"><see cref="almacenDTO"/> converted from <see cref="almacen"/>.</param>
-        static partial void OnDTO(this almacen entity, almacenDTO dto);
-
-        /// <summary>
-        /// Invoked when <see cref="ToEntity"/> operation is about to return.
-        /// </summary>
-        /// <param name="entity"><see cref="almacen"/> converted from <see cref="almacenDTO"/>.</param>
-        static partial void OnEntity(this almacenDTO dto, almacen entity);
-
-        /// <summary>
-        /// Converts this instance of <see cref="almacenDTO"/> to an instance of <see cref="almacen"/>.
-        /// </summary>
-        /// <param name="dto"><see cref="almacenDTO"/> to convert.</param>
+        
         public static almacen ToEntity(this almacenDTO dto)
         {
             if (dto == null) return null;
@@ -50,7 +35,7 @@ namespace Dominio.Convertidores
             entity.direccion = dto.direccion;
             entity.estado = dto.estado;
 
-            dto.OnEntity(entity);
+         
 
             return entity;
         }
@@ -71,7 +56,7 @@ namespace Dominio.Convertidores
             dto.direccion = entity.direccion;
             dto.estado = entity.estado;
 
-            entity.OnDTO(dto);
+           
 
             return dto;
         }
@@ -99,6 +84,14 @@ namespace Dominio.Convertidores
 
             return entities.Select(e => e.ToDTO()).ToList();
         }
+        public static void Actualizar(Dominio.Dtos.almacenDTO dto, PersistenciaDatos.almacen entity)
+        {
+            entity.ID_Almacen = dto.ID_Almacen;
+            entity.year = dto.year;
+            entity.nombre_almacen = dto.nombre_almacen;
+            entity.direccion = dto.direccion;
+            entity.estado = dto.estado;
 
+        }
     }
 }

@@ -22,22 +22,7 @@ namespace Dominio.Convertidores
     /// </summary>
     public static partial class departamentoAssembler
     {
-        /// <summary>
-        /// Invoked when <see cref="ToDTO"/> operation is about to return.
-        /// </summary>
-        /// <param name="dto"><see cref="departamentoDTO"/> converted from <see cref="departamento"/>.</param>
-        static partial void OnDTO(this departamento entity, departamentoDTO dto);
-
-        /// <summary>
-        /// Invoked when <see cref="ToEntity"/> operation is about to return.
-        /// </summary>
-        /// <param name="entity"><see cref="departamento"/> converted from <see cref="departamentoDTO"/>.</param>
-        static partial void OnEntity(this departamentoDTO dto, departamento entity);
-
-        /// <summary>
-        /// Converts this instance of <see cref="departamentoDTO"/> to an instance of <see cref="departamento"/>.
-        /// </summary>
-        /// <param name="dto"><see cref="departamentoDTO"/> to convert.</param>
+       
         public static departamento ToEntity(this departamentoDTO dto)
         {
             if (dto == null) return null;
@@ -47,7 +32,6 @@ namespace Dominio.Convertidores
             entity.ID_Departamento = dto.ID_Departamento;
             entity.nombre_departamento = dto.nombre_departamento;
 
-            dto.OnEntity(entity);
 
             return entity;
         }
@@ -65,7 +49,7 @@ namespace Dominio.Convertidores
             dto.ID_Departamento = entity.ID_Departamento;
             dto.nombre_departamento = entity.nombre_departamento;
 
-            entity.OnDTO(dto);
+          
 
             return dto;
         }
@@ -92,6 +76,13 @@ namespace Dominio.Convertidores
             if (entities == null) return null;
 
             return entities.Select(e => e.ToDTO()).ToList();
+        }
+        public static void Actualizar(Dominio.Dtos.departamentoDTO dto, PersistenciaDatos.departamento entity)
+        {
+
+            entity.ID_Departamento = dto.ID_Departamento;
+            entity.nombre_departamento = dto.nombre_departamento;
+
         }
 
     }

@@ -22,22 +22,7 @@ namespace Dominio.Convertidores
     /// </summary>
     public static partial class entidadAssembler
     {
-        /// <summary>
-        /// Invoked when <see cref="ToDTO"/> operation is about to return.
-        /// </summary>
-        /// <param name="dto"><see cref="entidadDTO"/> converted from <see cref="entidad"/>.</param>
-        static partial void OnDTO(this entidad entity, entidadDTO dto);
-
-        /// <summary>
-        /// Invoked when <see cref="ToEntity"/> operation is about to return.
-        /// </summary>
-        /// <param name="entity"><see cref="entidad"/> converted from <see cref="entidadDTO"/>.</param>
-        static partial void OnEntity(this entidadDTO dto, entidad entity);
-
-        /// <summary>
-        /// Converts this instance of <see cref="entidadDTO"/> to an instance of <see cref="entidad"/>.
-        /// </summary>
-        /// <param name="dto"><see cref="entidadDTO"/> to convert.</param>
+       
         public static entidad ToEntity(this entidadDTO dto)
         {
             if (dto == null) return null;
@@ -49,7 +34,7 @@ namespace Dominio.Convertidores
             entity.direccion = dto.direccion;
             entity.telefono = dto.telefono;
 
-            dto.OnEntity(entity);
+          
 
             return entity;
         }
@@ -69,7 +54,7 @@ namespace Dominio.Convertidores
             dto.direccion = entity.direccion;
             dto.telefono = entity.telefono;
 
-            entity.OnDTO(dto);
+           
 
             return dto;
         }
@@ -96,6 +81,15 @@ namespace Dominio.Convertidores
             if (entities == null) return null;
 
             return entities.Select(e => e.ToDTO()).ToList();
+        }
+
+        public static void Actualizar(Dominio.Dtos.entidadDTO dto, PersistenciaDatos.entidad entity)
+        {
+            entity.Ruc = dto.Ruc;
+            entity.nombre_entidad = dto.nombre_entidad;
+            entity.direccion = dto.direccion;
+            entity.telefono = dto.telefono;
+
         }
 
     }

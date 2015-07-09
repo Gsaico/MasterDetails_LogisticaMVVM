@@ -22,22 +22,7 @@ namespace Dominio.Convertidores
     /// </summary>
     public static partial class usuarioAssembler
     {
-        /// <summary>
-        /// Invoked when <see cref="ToDTO"/> operation is about to return.
-        /// </summary>
-        /// <param name="dto"><see cref="usuarioDTO"/> converted from <see cref="usuario"/>.</param>
-        static partial void OnDTO(this usuario entity, usuarioDTO dto);
-
-        /// <summary>
-        /// Invoked when <see cref="ToEntity"/> operation is about to return.
-        /// </summary>
-        /// <param name="entity"><see cref="usuario"/> converted from <see cref="usuarioDTO"/>.</param>
-        static partial void OnEntity(this usuarioDTO dto, usuario entity);
-
-        /// <summary>
-        /// Converts this instance of <see cref="usuarioDTO"/> to an instance of <see cref="usuario"/>.
-        /// </summary>
-        /// <param name="dto"><see cref="usuarioDTO"/> to convert.</param>
+        
         public static usuario ToEntity(this usuarioDTO dto)
         {
             if (dto == null) return null;
@@ -55,7 +40,7 @@ namespace Dominio.Convertidores
             entity.celular = dto.celular;
             entity.estado = dto.estado;
 
-            dto.OnEntity(entity);
+            
 
             return entity;
         }
@@ -81,7 +66,7 @@ namespace Dominio.Convertidores
             dto.celular = entity.celular;
             dto.estado = entity.estado;
 
-            entity.OnDTO(dto);
+           
 
             return dto;
         }
@@ -109,6 +94,19 @@ namespace Dominio.Convertidores
 
             return entities.Select(e => e.ToDTO()).ToList();
         }
+        public static void Actualizar(Dominio.Dtos.usuarioDTO dto, PersistenciaDatos.usuario entity)
+        {
+            entity.ID_Usuario = dto.ID_Usuario;
+            entity.ID_Departamento = dto.ID_Departamento;
+            entity.DNI = dto.DNI;
+            entity.password = dto.password;
+            entity.nombres = dto.nombres;
+            entity.apellidos = dto.apellidos;
+            entity.fecha_nacimiento = dto.fecha_nacimiento;
+            entity.email = dto.email;
+            entity.celular = dto.celular;
+            entity.estado = dto.estado;
 
+        }
     }
 }

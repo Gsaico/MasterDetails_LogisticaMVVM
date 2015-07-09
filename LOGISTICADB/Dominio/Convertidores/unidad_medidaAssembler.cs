@@ -22,22 +22,7 @@ namespace Dominio.Convertidores
     /// </summary>
     public static partial class unidad_medidaAssembler
     {
-        /// <summary>
-        /// Invoked when <see cref="ToDTO"/> operation is about to return.
-        /// </summary>
-        /// <param name="dto"><see cref="unidad_medidaDTO"/> converted from <see cref="unidad_medida"/>.</param>
-        static partial void OnDTO(this unidad_medida entity, unidad_medidaDTO dto);
-
-        /// <summary>
-        /// Invoked when <see cref="ToEntity"/> operation is about to return.
-        /// </summary>
-        /// <param name="entity"><see cref="unidad_medida"/> converted from <see cref="unidad_medidaDTO"/>.</param>
-        static partial void OnEntity(this unidad_medidaDTO dto, unidad_medida entity);
-
-        /// <summary>
-        /// Converts this instance of <see cref="unidad_medidaDTO"/> to an instance of <see cref="unidad_medida"/>.
-        /// </summary>
-        /// <param name="dto"><see cref="unidad_medidaDTO"/> to convert.</param>
+        
         public static unidad_medida ToEntity(this unidad_medidaDTO dto)
         {
             if (dto == null) return null;
@@ -47,7 +32,7 @@ namespace Dominio.Convertidores
             entity.ID_UnidadMedida = dto.ID_UnidadMedida;
             entity.nombre = dto.nombre;
 
-            dto.OnEntity(entity);
+         
 
             return entity;
         }
@@ -65,7 +50,7 @@ namespace Dominio.Convertidores
             dto.ID_UnidadMedida = entity.ID_UnidadMedida;
             dto.nombre = entity.nombre;
 
-            entity.OnDTO(dto);
+          
 
             return dto;
         }
@@ -92,6 +77,13 @@ namespace Dominio.Convertidores
             if (entities == null) return null;
 
             return entities.Select(e => e.ToDTO()).ToList();
+        }
+        public static void Actualizar(Dominio.Dtos.unidad_medidaDTO dto, PersistenciaDatos.unidad_medida entity)
+        {
+            entity.ID_UnidadMedida = dto.ID_UnidadMedida;
+            entity.nombre = dto.nombre;
+
+
         }
 
     }

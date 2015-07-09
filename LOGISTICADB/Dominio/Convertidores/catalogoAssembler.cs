@@ -22,22 +22,7 @@ namespace Dominio.Convertidores
     /// </summary>
     public static partial class catalogoAssembler
     {
-        /// <summary>
-        /// Invoked when <see cref="ToDTO"/> operation is about to return.
-        /// </summary>
-        /// <param name="dto"><see cref="catalogoDTO"/> converted from <see cref="catalogo"/>.</param>
-        static partial void OnDTO(this catalogo entity, catalogoDTO dto);
-
-        /// <summary>
-        /// Invoked when <see cref="ToEntity"/> operation is about to return.
-        /// </summary>
-        /// <param name="entity"><see cref="catalogo"/> converted from <see cref="catalogoDTO"/>.</param>
-        static partial void OnEntity(this catalogoDTO dto, catalogo entity);
-
-        /// <summary>
-        /// Converts this instance of <see cref="catalogoDTO"/> to an instance of <see cref="catalogo"/>.
-        /// </summary>
-        /// <param name="dto"><see cref="catalogoDTO"/> to convert.</param>
+        
         public static catalogo ToEntity(this catalogoDTO dto)
         {
             if (dto == null) return null;
@@ -49,7 +34,7 @@ namespace Dominio.Convertidores
             entity.unidad_medida = dto.unidad_medida;
             entity.nombre_bien = dto.nombre_bien;
 
-            dto.OnEntity(entity);
+            
 
             return entity;
         }
@@ -69,7 +54,7 @@ namespace Dominio.Convertidores
             dto.unidad_medida = entity.unidad_medida;
             dto.nombre_bien = entity.nombre_bien;
 
-            entity.OnDTO(dto);
+           
 
             return dto;
         }
@@ -96,6 +81,14 @@ namespace Dominio.Convertidores
             if (entities == null) return null;
 
             return entities.Select(e => e.ToDTO()).ToList();
+        }
+        public static void Actualizar(Dominio.Dtos.catalogoDTO dto, PersistenciaDatos.catalogo entity)
+        {
+            entity.ID_Catalogo = dto.ID_Catalogo;
+            entity.tipo_bien = dto.tipo_bien;
+            entity.unidad_medida = dto.unidad_medida;
+            entity.nombre_bien = dto.nombre_bien;
+
         }
 
     }
