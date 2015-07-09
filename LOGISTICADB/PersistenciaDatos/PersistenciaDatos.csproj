@@ -52,7 +52,6 @@
     <Compile Include="catalogo.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="departamento.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
