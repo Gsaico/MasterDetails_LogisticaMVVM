@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio.Querys
 {
-    class Querys
+    public partial class Querys
     {
     }
 }
