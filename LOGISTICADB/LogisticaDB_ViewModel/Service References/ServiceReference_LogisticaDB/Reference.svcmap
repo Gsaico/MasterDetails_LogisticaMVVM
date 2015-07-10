@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a09ee654-7540-41ab-a7de-75f1bda981b4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2247/LogisticaDB_ServiceWCF.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LogisticaDB_ServiceWCF.xsd" MetadataType="Schema" ID="d83425c2-498e-4e9b-9ea0-2f6b3b493ca3" SourceId="1" SourceUrl="http://localhost:2247/LogisticaDB_ServiceWCF.svc?xsd=xsd2" />
+    <MetadataFile FileName="LogisticaDB_ServiceWCF.wsdl" MetadataType="Wsdl" ID="82e8c11b-90e8-4ee1-86c8-25d1753c3fd7" SourceId="1" SourceUrl="http://localhost:2247/LogisticaDB_ServiceWCF.svc?wsdl" />
+    <MetadataFile FileName="LogisticaDB_ServiceWCF1.xsd" MetadataType="Schema" ID="cd6c3106-5263-4e69-acf8-0b6e0ddf1cb0" SourceId="1" SourceUrl="http://localhost:2247/LogisticaDB_ServiceWCF.svc?xsd=xsd0" />
+    <MetadataFile FileName="LogisticaDB_ServiceWCF.disco" MetadataType="Disco" ID="3d5d7196-464f-421c-90be-076fde07d4cb" SourceId="1" SourceUrl="http://localhost:2247/LogisticaDB_ServiceWCF.svc?disco" />
+    <MetadataFile FileName="LogisticaDB_ServiceWCF2.xsd" MetadataType="Schema" ID="53e2aeef-35aa-400b-b55f-9640a23da92e" SourceId="1" SourceUrl="http://localhost:2247/LogisticaDB_ServiceWCF.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

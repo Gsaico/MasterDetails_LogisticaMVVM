@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Dominio.Dtos" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Dominio.Dtos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="almacenDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID_Almacen" type="xs:int" />
+      <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre_almacen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="requerimiento" nillable="true" type="tns:ArrayOfrequerimientoDTO" />
+      <xs:element minOccurs="0" name="year" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="almacenDTO" nillable="true" type="tns:almacenDTO" />
+  <xs:complexType name="ArrayOfrequerimientoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="requerimientoDTO" nillable="true" type="tns:requerimientoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfrequerimientoDTO" nillable="true" type="tns:ArrayOfrequerimientoDTO" />
+  <xs:complexType name="requerimientoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID_Almacen" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_Requerimiento" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_Usuario" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="almacen" nillable="true" type="tns:almacenDTO" />
+      <xs:element minOccurs="0" name="detalle_requerimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fecha" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="observaciones_requerimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="requerimiento_detalle" nillable="true" type="tns:ArrayOfrequerimiento_detalleDTO" />
+      <xs:element minOccurs="0" name="usuario" nillable="true" type="tns:usuarioDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="requerimientoDTO" nillable="true" type="tns:requerimientoDTO" />
+  <xs:complexType name="ArrayOfrequerimiento_detalleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="requerimiento_detalleDTO" nillable="true" type="tns:requerimiento_detalleDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfrequerimiento_detalleDTO" nillable="true" type="tns:ArrayOfrequerimiento_detalleDTO" />
+  <xs:complexType name="requerimiento_detalleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID_Catalogo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID_Requerimiento" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_RequerimientoDetalle" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_UnidadMedida" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cantidad" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="catalogo" nillable="true" type="tns:catalogoDTO" />
+      <xs:element minOccurs="0" name="requerimiento" nillable="true" type="tns:requerimientoDTO" />
+      <xs:element minOccurs="0" name="unidad_medida" nillable="true" type="tns:unidad_medidaDTO" />
+      <xs:element minOccurs="0" name="valor_referencial" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="requerimiento_detalleDTO" nillable="true" type="tns:requerimiento_detalleDTO" />
+  <xs:complexType name="catalogoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID_Catalogo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre_bien" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="requerimiento_detalle" nillable="true" type="tns:ArrayOfrequerimiento_detalleDTO" />
+      <xs:element minOccurs="0" name="tipo_bien" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="unidad_medida" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="catalogoDTO" nillable="true" type="tns:catalogoDTO" />
+  <xs:complexType name="unidad_medidaDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID_UnidadMedida" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="requerimiento_detalle" nillable="true" type="tns:ArrayOfrequerimiento_detalleDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="unidad_medidaDTO" nillable="true" type="tns:unidad_medidaDTO" />
+  <xs:complexType name="usuarioDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DNI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID_Departamento" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="apellidos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="celular" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="departamento" nillable="true" type="tns:departamentoDTO" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fecha_nacimiento" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="nombres" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="proyecto" nillable="true" type="tns:ArrayOfproyectoDTO" />
+      <xs:element minOccurs="0" name="requerimiento" nillable="true" type="tns:ArrayOfrequerimientoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="usuarioDTO" nillable="true" type="tns:usuarioDTO" />
+  <xs:complexType name="departamentoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID_Departamento" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre_departamento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="usuario" nillable="true" type="tns:ArrayOfusuarioDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="departamentoDTO" nillable="true" type="tns:departamentoDTO" />
+  <xs:complexType name="ArrayOfusuarioDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="usuarioDTO" nillable="true" type="tns:usuarioDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfusuarioDTO" nillable="true" type="tns:ArrayOfusuarioDTO" />
+  <xs:complexType name="ArrayOfproyectoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="proyectoDTO" nillable="true" type="tns:proyectoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfproyectoDTO" nillable="true" type="tns:ArrayOfproyectoDTO" />
+  <xs:complexType name="proyectoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID_Proyecto" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_Usuario" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="usuario" nillable="true" type="tns:usuarioDTO" />
+      <xs:element minOccurs="0" name="year_ejec" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="proyectoDTO" nillable="true" type="tns:proyectoDTO" />
+  <xs:complexType name="ArrayOfalmacenDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="almacenDTO" nillable="true" type="tns:almacenDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfalmacenDTO" nillable="true" type="tns:ArrayOfalmacenDTO" />
+  <xs:complexType name="ArrayOfcatalogoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="catalogoDTO" nillable="true" type="tns:catalogoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfcatalogoDTO" nillable="true" type="tns:ArrayOfcatalogoDTO" />
+  <xs:complexType name="ArrayOfdepartamentoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="departamentoDTO" nillable="true" type="tns:departamentoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdepartamentoDTO" nillable="true" type="tns:ArrayOfdepartamentoDTO" />
+  <xs:complexType name="entidadDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ruc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre_entidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="entidadDTO" nillable="true" type="tns:entidadDTO" />
+  <xs:complexType name="ArrayOfentidadDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="entidadDTO" nillable="true" type="tns:entidadDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfentidadDTO" nillable="true" type="tns:ArrayOfentidadDTO" />
+  <xs:complexType name="ArrayOfunidad_medidaDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="unidad_medidaDTO" nillable="true" type="tns:unidad_medidaDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfunidad_medidaDTO" nillable="true" type="tns:ArrayOfunidad_medidaDTO" />
+</xs:schema>

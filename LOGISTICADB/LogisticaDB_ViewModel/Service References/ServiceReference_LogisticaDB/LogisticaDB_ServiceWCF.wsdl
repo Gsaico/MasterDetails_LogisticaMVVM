@@ -1,0 +1,1186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LogisticaDB_ServiceWCF" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2247/LogisticaDB_ServiceWCF.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2247/LogisticaDB_ServiceWCF.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2247/LogisticaDB_ServiceWCF.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Dominio.Dtos" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAlmacenService_InsertarAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="IAlmacenService_InsertarAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlmacenService_ActualizarAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="IAlmacenService_ActualizarAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlmacenService_EliminarAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="IAlmacenService_EliminarAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlmacenService_ListarAlmacenXnombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAlmacenXnombre" />
+  </wsdl:message>
+  <wsdl:message name="IAlmacenService_ListarAlmacenXnombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAlmacenXnombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlmacenService_ListarAlmacenes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAlmacenes" />
+  </wsdl:message>
+  <wsdl:message name="IAlmacenService_ListarAlmacenes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAlmacenesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlmacenService_BuscarAlmacenPorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarAlmacenPorID" />
+  </wsdl:message>
+  <wsdl:message name="IAlmacenService_BuscarAlmacenPorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarAlmacenPorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_InsertarCatalogo_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarCatalogo" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_InsertarCatalogo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarCatalogoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_ActualizarCatalogo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarCatalogo" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_ActualizarCatalogo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarCatalogoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_EliminarCatalogo_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarCatalogo" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_EliminarCatalogo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarCatalogoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_ListarCatalogoXnombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCatalogoXnombre" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_ListarCatalogoXnombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCatalogoXnombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_ListarCatalogoXtipobien_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCatalogoXtipobien" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_ListarCatalogoXtipobien_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCatalogoXtipobienResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_ListarCatalogos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCatalogos" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_ListarCatalogos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCatalogosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_BuscarCatalogoPorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarCatalogoPorID" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogoService_BuscarCatalogoPorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarCatalogoPorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDepartamentoService_InsertarDepartamento_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarDepartamento" />
+  </wsdl:message>
+  <wsdl:message name="IDepartamentoService_InsertarDepartamento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarDepartamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDepartamentoService_ActualizarDepartamento_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarDepartamento" />
+  </wsdl:message>
+  <wsdl:message name="IDepartamentoService_ActualizarDepartamento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarDepartamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDepartamentoService_EliminarDepartamento_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarDepartamento" />
+  </wsdl:message>
+  <wsdl:message name="IDepartamentoService_EliminarDepartamento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarDepartamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDepartamentoService_ListarDepartamentoXnombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDepartamentoXnombre" />
+  </wsdl:message>
+  <wsdl:message name="IDepartamentoService_ListarDepartamentoXnombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDepartamentoXnombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDepartamentoService_ListarDepartamentos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDepartamentos" />
+  </wsdl:message>
+  <wsdl:message name="IDepartamentoService_ListarDepartamentos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDepartamentosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDepartamentoService_BuscarDepartamentoPorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDepartamentoPorID" />
+  </wsdl:message>
+  <wsdl:message name="IDepartamentoService_BuscarDepartamentoPorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDepartamentoPorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEntidadService_InsertarEntidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarEntidad" />
+  </wsdl:message>
+  <wsdl:message name="IEntidadService_InsertarEntidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarEntidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEntidadService_ActualizarEntidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEntidad" />
+  </wsdl:message>
+  <wsdl:message name="IEntidadService_ActualizarEntidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEntidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEntidadService_EliminarEntidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarEntidad" />
+  </wsdl:message>
+  <wsdl:message name="IEntidadService_EliminarEntidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarEntidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEntidadService_ListarEntidadXnombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEntidadXnombre" />
+  </wsdl:message>
+  <wsdl:message name="IEntidadService_ListarEntidadXnombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEntidadXnombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEntidadService_ListarEntidades_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEntidades" />
+  </wsdl:message>
+  <wsdl:message name="IEntidadService_ListarEntidades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEntidadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEntidadService_BuscarEntidadPorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarEntidadPorID" />
+  </wsdl:message>
+  <wsdl:message name="IEntidadService_BuscarEntidadPorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarEntidadPorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_InsertarProyecto_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarProyecto" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_InsertarProyecto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarProyectoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_ActualizarProyecto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarProyecto" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_ActualizarProyecto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarProyectoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_EliminarProyecto_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarProyecto" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_EliminarProyecto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarProyectoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_ListarProyectoXnombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarProyectoXnombre" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_ListarProyectoXnombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarProyectoXnombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_ListarProyectoXidusuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarProyectoXidusuario" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_ListarProyectoXidusuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarProyectoXidusuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_ListarProyectos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarProyectos" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_ListarProyectos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarProyectosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_BuscarProyectoPorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProyectoPorID" />
+  </wsdl:message>
+  <wsdl:message name="IProyectoService_BuscarProyectoPorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProyectoPorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_InsertarRequerimiento_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarRequerimiento" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_InsertarRequerimiento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarRequerimientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_ActualizarRequerimiento_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarRequerimiento" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_ActualizarRequerimiento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarRequerimientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_EliminarRequerimiento_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarRequerimiento" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_EliminarRequerimiento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarRequerimientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_ListarRequerimientoXidusuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRequerimientoXidusuario" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_ListarRequerimientoXidusuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRequerimientoXidusuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_ListarRequerimientoXidalmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRequerimientoXidalmacen" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_ListarRequerimientoXidalmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRequerimientoXidalmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_ListarRequerimientoXdetallerequerimiento_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRequerimientoXdetallerequerimiento" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_ListarRequerimientoXdetallerequerimiento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRequerimientoXdetallerequerimientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_ListarRequerimientos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRequerimientos" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_ListarRequerimientos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRequerimientosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_BuscarRequerimientoPorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarRequerimientoPorID" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimientoService_BuscarRequerimientoPorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarRequerimientoPorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimiento_DetalleService_InsertarRequerimientoDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarRequerimientoDetalle" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimiento_DetalleService_InsertarRequerimientoDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarRequerimientoDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimiento_DetalleService_ActualizarRequerimientoDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarRequerimientoDetalle" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimiento_DetalleService_ActualizarRequerimientoDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarRequerimientoDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimiento_DetalleService_EliminarRequerimientoDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarRequerimientoDetalle" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimiento_DetalleService_EliminarRequerimientoDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarRequerimientoDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimiento_DetalleService_ListarRequerimientoDetalleXID_Requerimiento_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRequerimientoDetalleXID_Requerimiento" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimiento_DetalleService_ListarRequerimientoDetalleXID_Requerimiento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRequerimientoDetalleXID_RequerimientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimiento_DetalleService_ListarRequerimientoDetalles_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRequerimientoDetalles" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimiento_DetalleService_ListarRequerimientoDetalles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRequerimientoDetallesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimiento_DetalleService_BuscarRequerimientoDetallePorIdrequerimientodetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarRequerimientoDetallePorIdrequerimientodetalle" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimiento_DetalleService_BuscarRequerimientoDetallePorIdrequerimientodetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarRequerimientoDetallePorIdrequerimientodetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUnidad_MedidaService_InsertarUnidadMedida_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarUnidadMedida" />
+  </wsdl:message>
+  <wsdl:message name="IUnidad_MedidaService_InsertarUnidadMedida_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarUnidadMedidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUnidad_MedidaService_ActualizarUnidadMedida_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarUnidadMedida" />
+  </wsdl:message>
+  <wsdl:message name="IUnidad_MedidaService_ActualizarUnidadMedida_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarUnidadMedidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUnidad_MedidaService_EliminarUnidadMedida_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUnidadMedida" />
+  </wsdl:message>
+  <wsdl:message name="IUnidad_MedidaService_EliminarUnidadMedida_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUnidadMedidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUnidad_MedidaService_ListarUnidadMedidaXnombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUnidadMedidaXnombre" />
+  </wsdl:message>
+  <wsdl:message name="IUnidad_MedidaService_ListarUnidadMedidaXnombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUnidadMedidaXnombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUnidad_MedidaService_ListarUnidadDeMedidas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUnidadDeMedidas" />
+  </wsdl:message>
+  <wsdl:message name="IUnidad_MedidaService_ListarUnidadDeMedidas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUnidadDeMedidasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUnidad_MedidaService_BuscarUnidadMedidaPorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUnidadMedidaPorID" />
+  </wsdl:message>
+  <wsdl:message name="IUnidad_MedidaService_BuscarUnidadMedidaPorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUnidadMedidaPorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_InsertarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_InsertarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ActualizarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ActualizarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EliminarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EliminarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ListarUsuarioXnombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuarioXnombre" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ListarUsuarioXnombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuarioXnombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ListarUsuarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ListarUsuarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_BuscarUsuarioPorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioPorID" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_BuscarUsuarioPorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioPorIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAlmacenService">
+    <wsdl:operation name="InsertarAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlmacenService/InsertarAlmacen" message="tns:IAlmacenService_InsertarAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlmacenService/InsertarAlmacenResponse" message="tns:IAlmacenService_InsertarAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlmacenService/ActualizarAlmacen" message="tns:IAlmacenService_ActualizarAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlmacenService/ActualizarAlmacenResponse" message="tns:IAlmacenService_ActualizarAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlmacenService/EliminarAlmacen" message="tns:IAlmacenService_EliminarAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlmacenService/EliminarAlmacenResponse" message="tns:IAlmacenService_EliminarAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarAlmacenXnombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlmacenService/ListarAlmacenXnombre" message="tns:IAlmacenService_ListarAlmacenXnombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlmacenService/ListarAlmacenXnombreResponse" message="tns:IAlmacenService_ListarAlmacenXnombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarAlmacenes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlmacenService/ListarAlmacenes" message="tns:IAlmacenService_ListarAlmacenes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlmacenService/ListarAlmacenesResponse" message="tns:IAlmacenService_ListarAlmacenes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAlmacenPorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlmacenService/BuscarAlmacenPorID" message="tns:IAlmacenService_BuscarAlmacenPorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlmacenService/BuscarAlmacenPorIDResponse" message="tns:IAlmacenService_BuscarAlmacenPorID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ICatalogoService">
+    <wsdl:operation name="InsertarCatalogo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogoService/InsertarCatalogo" message="tns:ICatalogoService_InsertarCatalogo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogoService/InsertarCatalogoResponse" message="tns:ICatalogoService_InsertarCatalogo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCatalogo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogoService/ActualizarCatalogo" message="tns:ICatalogoService_ActualizarCatalogo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogoService/ActualizarCatalogoResponse" message="tns:ICatalogoService_ActualizarCatalogo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCatalogo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogoService/EliminarCatalogo" message="tns:ICatalogoService_EliminarCatalogo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogoService/EliminarCatalogoResponse" message="tns:ICatalogoService_EliminarCatalogo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCatalogoXnombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogoService/ListarCatalogoXnombre" message="tns:ICatalogoService_ListarCatalogoXnombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogoService/ListarCatalogoXnombreResponse" message="tns:ICatalogoService_ListarCatalogoXnombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCatalogoXtipobien">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogoService/ListarCatalogoXtipobien" message="tns:ICatalogoService_ListarCatalogoXtipobien_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogoService/ListarCatalogoXtipobienResponse" message="tns:ICatalogoService_ListarCatalogoXtipobien_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCatalogos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogoService/ListarCatalogos" message="tns:ICatalogoService_ListarCatalogos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogoService/ListarCatalogosResponse" message="tns:ICatalogoService_ListarCatalogos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCatalogoPorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogoService/BuscarCatalogoPorID" message="tns:ICatalogoService_BuscarCatalogoPorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogoService/BuscarCatalogoPorIDResponse" message="tns:ICatalogoService_BuscarCatalogoPorID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IDepartamentoService">
+    <wsdl:operation name="InsertarDepartamento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDepartamentoService/InsertarDepartamento" message="tns:IDepartamentoService_InsertarDepartamento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDepartamentoService/InsertarDepartamentoResponse" message="tns:IDepartamentoService_InsertarDepartamento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDepartamento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDepartamentoService/ActualizarDepartamento" message="tns:IDepartamentoService_ActualizarDepartamento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDepartamentoService/ActualizarDepartamentoResponse" message="tns:IDepartamentoService_ActualizarDepartamento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarDepartamento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDepartamentoService/EliminarDepartamento" message="tns:IDepartamentoService_EliminarDepartamento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDepartamentoService/EliminarDepartamentoResponse" message="tns:IDepartamentoService_EliminarDepartamento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDepartamentoXnombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDepartamentoService/ListarDepartamentoXnombre" message="tns:IDepartamentoService_ListarDepartamentoXnombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDepartamentoService/ListarDepartamentoXnombreResponse" message="tns:IDepartamentoService_ListarDepartamentoXnombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDepartamentos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDepartamentoService/ListarDepartamentos" message="tns:IDepartamentoService_ListarDepartamentos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDepartamentoService/ListarDepartamentosResponse" message="tns:IDepartamentoService_ListarDepartamentos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDepartamentoPorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDepartamentoService/BuscarDepartamentoPorID" message="tns:IDepartamentoService_BuscarDepartamentoPorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDepartamentoService/BuscarDepartamentoPorIDResponse" message="tns:IDepartamentoService_BuscarDepartamentoPorID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IEntidadService">
+    <wsdl:operation name="InsertarEntidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEntidadService/InsertarEntidad" message="tns:IEntidadService_InsertarEntidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEntidadService/InsertarEntidadResponse" message="tns:IEntidadService_InsertarEntidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEntidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEntidadService/ActualizarEntidad" message="tns:IEntidadService_ActualizarEntidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEntidadService/ActualizarEntidadResponse" message="tns:IEntidadService_ActualizarEntidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarEntidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEntidadService/EliminarEntidad" message="tns:IEntidadService_EliminarEntidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEntidadService/EliminarEntidadResponse" message="tns:IEntidadService_EliminarEntidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEntidadXnombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEntidadService/ListarEntidadXnombre" message="tns:IEntidadService_ListarEntidadXnombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEntidadService/ListarEntidadXnombreResponse" message="tns:IEntidadService_ListarEntidadXnombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEntidades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEntidadService/ListarEntidades" message="tns:IEntidadService_ListarEntidades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEntidadService/ListarEntidadesResponse" message="tns:IEntidadService_ListarEntidades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarEntidadPorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEntidadService/BuscarEntidadPorID" message="tns:IEntidadService_BuscarEntidadPorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEntidadService/BuscarEntidadPorIDResponse" message="tns:IEntidadService_BuscarEntidadPorID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IProyectoService">
+    <wsdl:operation name="InsertarProyecto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProyectoService/InsertarProyecto" message="tns:IProyectoService_InsertarProyecto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProyectoService/InsertarProyectoResponse" message="tns:IProyectoService_InsertarProyecto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarProyecto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProyectoService/ActualizarProyecto" message="tns:IProyectoService_ActualizarProyecto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProyectoService/ActualizarProyectoResponse" message="tns:IProyectoService_ActualizarProyecto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProyecto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProyectoService/EliminarProyecto" message="tns:IProyectoService_EliminarProyecto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProyectoService/EliminarProyectoResponse" message="tns:IProyectoService_EliminarProyecto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarProyectoXnombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProyectoService/ListarProyectoXnombre" message="tns:IProyectoService_ListarProyectoXnombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProyectoService/ListarProyectoXnombreResponse" message="tns:IProyectoService_ListarProyectoXnombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarProyectoXidusuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProyectoService/ListarProyectoXidusuario" message="tns:IProyectoService_ListarProyectoXidusuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProyectoService/ListarProyectoXidusuarioResponse" message="tns:IProyectoService_ListarProyectoXidusuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarProyectos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProyectoService/ListarProyectos" message="tns:IProyectoService_ListarProyectos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProyectoService/ListarProyectosResponse" message="tns:IProyectoService_ListarProyectos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProyectoPorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProyectoService/BuscarProyectoPorID" message="tns:IProyectoService_BuscarProyectoPorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProyectoService/BuscarProyectoPorIDResponse" message="tns:IProyectoService_BuscarProyectoPorID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRequerimientoService">
+    <wsdl:operation name="InsertarRequerimiento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimientoService/InsertarRequerimiento" message="tns:IRequerimientoService_InsertarRequerimiento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimientoService/InsertarRequerimientoResponse" message="tns:IRequerimientoService_InsertarRequerimiento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarRequerimiento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimientoService/ActualizarRequerimiento" message="tns:IRequerimientoService_ActualizarRequerimiento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimientoService/ActualizarRequerimientoResponse" message="tns:IRequerimientoService_ActualizarRequerimiento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarRequerimiento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimientoService/EliminarRequerimiento" message="tns:IRequerimientoService_EliminarRequerimiento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimientoService/EliminarRequerimientoResponse" message="tns:IRequerimientoService_EliminarRequerimiento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarRequerimientoXidusuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimientoService/ListarRequerimientoXidusuario" message="tns:IRequerimientoService_ListarRequerimientoXidusuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimientoService/ListarRequerimientoXidusuarioResponse" message="tns:IRequerimientoService_ListarRequerimientoXidusuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarRequerimientoXidalmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimientoService/ListarRequerimientoXidalmacen" message="tns:IRequerimientoService_ListarRequerimientoXidalmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimientoService/ListarRequerimientoXidalmacenResponse" message="tns:IRequerimientoService_ListarRequerimientoXidalmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarRequerimientoXdetallerequerimiento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimientoService/ListarRequerimientoXdetallerequerimiento" message="tns:IRequerimientoService_ListarRequerimientoXdetallerequerimiento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimientoService/ListarRequerimientoXdetallerequerimientoResponse" message="tns:IRequerimientoService_ListarRequerimientoXdetallerequerimiento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarRequerimientos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimientoService/ListarRequerimientos" message="tns:IRequerimientoService_ListarRequerimientos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimientoService/ListarRequerimientosResponse" message="tns:IRequerimientoService_ListarRequerimientos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarRequerimientoPorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimientoService/BuscarRequerimientoPorID" message="tns:IRequerimientoService_BuscarRequerimientoPorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimientoService/BuscarRequerimientoPorIDResponse" message="tns:IRequerimientoService_BuscarRequerimientoPorID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRequerimiento_DetalleService">
+    <wsdl:operation name="InsertarRequerimientoDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimiento_DetalleService/InsertarRequerimientoDetalle" message="tns:IRequerimiento_DetalleService_InsertarRequerimientoDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimiento_DetalleService/InsertarRequerimientoDetalleResponse" message="tns:IRequerimiento_DetalleService_InsertarRequerimientoDetalle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarRequerimientoDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimiento_DetalleService/ActualizarRequerimientoDetalle" message="tns:IRequerimiento_DetalleService_ActualizarRequerimientoDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimiento_DetalleService/ActualizarRequerimientoDetalleResponse" message="tns:IRequerimiento_DetalleService_ActualizarRequerimientoDetalle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarRequerimientoDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimiento_DetalleService/EliminarRequerimientoDetalle" message="tns:IRequerimiento_DetalleService_EliminarRequerimientoDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimiento_DetalleService/EliminarRequerimientoDetalleResponse" message="tns:IRequerimiento_DetalleService_EliminarRequerimientoDetalle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarRequerimientoDetalleXID_Requerimiento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimiento_DetalleService/ListarRequerimientoDetalleXID_Requerimiento" message="tns:IRequerimiento_DetalleService_ListarRequerimientoDetalleXID_Requerimiento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimiento_DetalleService/ListarRequerimientoDetalleXID_RequerimientoResponse" message="tns:IRequerimiento_DetalleService_ListarRequerimientoDetalleXID_Requerimiento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarRequerimientoDetalles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimiento_DetalleService/ListarRequerimientoDetalles" message="tns:IRequerimiento_DetalleService_ListarRequerimientoDetalles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimiento_DetalleService/ListarRequerimientoDetallesResponse" message="tns:IRequerimiento_DetalleService_ListarRequerimientoDetalles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarRequerimientoDetallePorIdrequerimientodetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimiento_DetalleService/BuscarRequerimientoDetallePorIdrequerimientodetalle" message="tns:IRequerimiento_DetalleService_BuscarRequerimientoDetallePorIdrequerimientodetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimiento_DetalleService/BuscarRequerimientoDetallePorIdrequerimientodetalleResponse" message="tns:IRequerimiento_DetalleService_BuscarRequerimientoDetallePorIdrequerimientodetalle_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IUnidad_MedidaService">
+    <wsdl:operation name="InsertarUnidadMedida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUnidad_MedidaService/InsertarUnidadMedida" message="tns:IUnidad_MedidaService_InsertarUnidadMedida_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUnidad_MedidaService/InsertarUnidadMedidaResponse" message="tns:IUnidad_MedidaService_InsertarUnidadMedida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarUnidadMedida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUnidad_MedidaService/ActualizarUnidadMedida" message="tns:IUnidad_MedidaService_ActualizarUnidadMedida_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUnidad_MedidaService/ActualizarUnidadMedidaResponse" message="tns:IUnidad_MedidaService_ActualizarUnidadMedida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUnidadMedida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUnidad_MedidaService/EliminarUnidadMedida" message="tns:IUnidad_MedidaService_EliminarUnidadMedida_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUnidad_MedidaService/EliminarUnidadMedidaResponse" message="tns:IUnidad_MedidaService_EliminarUnidadMedida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarUnidadMedidaXnombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUnidad_MedidaService/ListarUnidadMedidaXnombre" message="tns:IUnidad_MedidaService_ListarUnidadMedidaXnombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUnidad_MedidaService/ListarUnidadMedidaXnombreResponse" message="tns:IUnidad_MedidaService_ListarUnidadMedidaXnombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarUnidadDeMedidas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUnidad_MedidaService/ListarUnidadDeMedidas" message="tns:IUnidad_MedidaService_ListarUnidadDeMedidas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUnidad_MedidaService/ListarUnidadDeMedidasResponse" message="tns:IUnidad_MedidaService_ListarUnidadDeMedidas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUnidadMedidaPorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUnidad_MedidaService/BuscarUnidadMedidaPorID" message="tns:IUnidad_MedidaService_BuscarUnidadMedidaPorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUnidad_MedidaService/BuscarUnidadMedidaPorIDResponse" message="tns:IUnidad_MedidaService_BuscarUnidadMedidaPorID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IUsuarioService">
+    <wsdl:operation name="InsertarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/InsertarUsuario" message="tns:IUsuarioService_InsertarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/InsertarUsuarioResponse" message="tns:IUsuarioService_InsertarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ActualizarUsuario" message="tns:IUsuarioService_ActualizarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ActualizarUsuarioResponse" message="tns:IUsuarioService_ActualizarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/EliminarUsuario" message="tns:IUsuarioService_EliminarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/EliminarUsuarioResponse" message="tns:IUsuarioService_EliminarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuarioXnombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ListarUsuarioXnombre" message="tns:IUsuarioService_ListarUsuarioXnombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ListarUsuarioXnombreResponse" message="tns:IUsuarioService_ListarUsuarioXnombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ListarUsuarios" message="tns:IUsuarioService_ListarUsuarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ListarUsuariosResponse" message="tns:IUsuarioService_ListarUsuarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioPorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/BuscarUsuarioPorID" message="tns:IUsuarioService_BuscarUsuarioPorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/BuscarUsuarioPorIDResponse" message="tns:IUsuarioService_BuscarUsuarioPorID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAlmacenService" type="tns:IAlmacenService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarAlmacen">
+      <soap:operation soapAction="http://tempuri.org/IAlmacenService/InsertarAlmacen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarAlmacen">
+      <soap:operation soapAction="http://tempuri.org/IAlmacenService/ActualizarAlmacen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAlmacen">
+      <soap:operation soapAction="http://tempuri.org/IAlmacenService/EliminarAlmacen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAlmacenXnombre">
+      <soap:operation soapAction="http://tempuri.org/IAlmacenService/ListarAlmacenXnombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAlmacenes">
+      <soap:operation soapAction="http://tempuri.org/IAlmacenService/ListarAlmacenes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAlmacenPorID">
+      <soap:operation soapAction="http://tempuri.org/IAlmacenService/BuscarAlmacenPorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ICatalogoService" type="tns:ICatalogoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarCatalogo">
+      <soap:operation soapAction="http://tempuri.org/ICatalogoService/InsertarCatalogo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCatalogo">
+      <soap:operation soapAction="http://tempuri.org/ICatalogoService/ActualizarCatalogo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCatalogo">
+      <soap:operation soapAction="http://tempuri.org/ICatalogoService/EliminarCatalogo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCatalogoXnombre">
+      <soap:operation soapAction="http://tempuri.org/ICatalogoService/ListarCatalogoXnombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCatalogoXtipobien">
+      <soap:operation soapAction="http://tempuri.org/ICatalogoService/ListarCatalogoXtipobien" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCatalogos">
+      <soap:operation soapAction="http://tempuri.org/ICatalogoService/ListarCatalogos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCatalogoPorID">
+      <soap:operation soapAction="http://tempuri.org/ICatalogoService/BuscarCatalogoPorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IDepartamentoService" type="tns:IDepartamentoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarDepartamento">
+      <soap:operation soapAction="http://tempuri.org/IDepartamentoService/InsertarDepartamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDepartamento">
+      <soap:operation soapAction="http://tempuri.org/IDepartamentoService/ActualizarDepartamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarDepartamento">
+      <soap:operation soapAction="http://tempuri.org/IDepartamentoService/EliminarDepartamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDepartamentoXnombre">
+      <soap:operation soapAction="http://tempuri.org/IDepartamentoService/ListarDepartamentoXnombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDepartamentos">
+      <soap:operation soapAction="http://tempuri.org/IDepartamentoService/ListarDepartamentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDepartamentoPorID">
+      <soap:operation soapAction="http://tempuri.org/IDepartamentoService/BuscarDepartamentoPorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IEntidadService" type="tns:IEntidadService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarEntidad">
+      <soap:operation soapAction="http://tempuri.org/IEntidadService/InsertarEntidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEntidad">
+      <soap:operation soapAction="http://tempuri.org/IEntidadService/ActualizarEntidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarEntidad">
+      <soap:operation soapAction="http://tempuri.org/IEntidadService/EliminarEntidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEntidadXnombre">
+      <soap:operation soapAction="http://tempuri.org/IEntidadService/ListarEntidadXnombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEntidades">
+      <soap:operation soapAction="http://tempuri.org/IEntidadService/ListarEntidades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarEntidadPorID">
+      <soap:operation soapAction="http://tempuri.org/IEntidadService/BuscarEntidadPorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IProyectoService" type="tns:IProyectoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarProyecto">
+      <soap:operation soapAction="http://tempuri.org/IProyectoService/InsertarProyecto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarProyecto">
+      <soap:operation soapAction="http://tempuri.org/IProyectoService/ActualizarProyecto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProyecto">
+      <soap:operation soapAction="http://tempuri.org/IProyectoService/EliminarProyecto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarProyectoXnombre">
+      <soap:operation soapAction="http://tempuri.org/IProyectoService/ListarProyectoXnombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarProyectoXidusuario">
+      <soap:operation soapAction="http://tempuri.org/IProyectoService/ListarProyectoXidusuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarProyectos">
+      <soap:operation soapAction="http://tempuri.org/IProyectoService/ListarProyectos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProyectoPorID">
+      <soap:operation soapAction="http://tempuri.org/IProyectoService/BuscarProyectoPorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRequerimientoService" type="tns:IRequerimientoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarRequerimiento">
+      <soap:operation soapAction="http://tempuri.org/IRequerimientoService/InsertarRequerimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarRequerimiento">
+      <soap:operation soapAction="http://tempuri.org/IRequerimientoService/ActualizarRequerimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarRequerimiento">
+      <soap:operation soapAction="http://tempuri.org/IRequerimientoService/EliminarRequerimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRequerimientoXidusuario">
+      <soap:operation soapAction="http://tempuri.org/IRequerimientoService/ListarRequerimientoXidusuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRequerimientoXidalmacen">
+      <soap:operation soapAction="http://tempuri.org/IRequerimientoService/ListarRequerimientoXidalmacen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRequerimientoXdetallerequerimiento">
+      <soap:operation soapAction="http://tempuri.org/IRequerimientoService/ListarRequerimientoXdetallerequerimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRequerimientos">
+      <soap:operation soapAction="http://tempuri.org/IRequerimientoService/ListarRequerimientos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarRequerimientoPorID">
+      <soap:operation soapAction="http://tempuri.org/IRequerimientoService/BuscarRequerimientoPorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRequerimiento_DetalleService" type="tns:IRequerimiento_DetalleService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarRequerimientoDetalle">
+      <soap:operation soapAction="http://tempuri.org/IRequerimiento_DetalleService/InsertarRequerimientoDetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarRequerimientoDetalle">
+      <soap:operation soapAction="http://tempuri.org/IRequerimiento_DetalleService/ActualizarRequerimientoDetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarRequerimientoDetalle">
+      <soap:operation soapAction="http://tempuri.org/IRequerimiento_DetalleService/EliminarRequerimientoDetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRequerimientoDetalleXID_Requerimiento">
+      <soap:operation soapAction="http://tempuri.org/IRequerimiento_DetalleService/ListarRequerimientoDetalleXID_Requerimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRequerimientoDetalles">
+      <soap:operation soapAction="http://tempuri.org/IRequerimiento_DetalleService/ListarRequerimientoDetalles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarRequerimientoDetallePorIdrequerimientodetalle">
+      <soap:operation soapAction="http://tempuri.org/IRequerimiento_DetalleService/BuscarRequerimientoDetallePorIdrequerimientodetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IUnidad_MedidaService" type="tns:IUnidad_MedidaService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarUnidadMedida">
+      <soap:operation soapAction="http://tempuri.org/IUnidad_MedidaService/InsertarUnidadMedida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarUnidadMedida">
+      <soap:operation soapAction="http://tempuri.org/IUnidad_MedidaService/ActualizarUnidadMedida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUnidadMedida">
+      <soap:operation soapAction="http://tempuri.org/IUnidad_MedidaService/EliminarUnidadMedida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarUnidadMedidaXnombre">
+      <soap:operation soapAction="http://tempuri.org/IUnidad_MedidaService/ListarUnidadMedidaXnombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarUnidadDeMedidas">
+      <soap:operation soapAction="http://tempuri.org/IUnidad_MedidaService/ListarUnidadDeMedidas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUnidadMedidaPorID">
+      <soap:operation soapAction="http://tempuri.org/IUnidad_MedidaService/BuscarUnidadMedidaPorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IUsuarioService" type="tns:IUsuarioService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/InsertarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ActualizarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/EliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuarioXnombre">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ListarUsuarioXnombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuarios">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ListarUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioPorID">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/BuscarUsuarioPorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LogisticaDB_ServiceWCF">
+    <wsdl:port name="BasicHttpBinding_IAlmacenService" binding="tns:BasicHttpBinding_IAlmacenService">
+      <soap:address location="http://localhost:2247/LogisticaDB_ServiceWCF.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ICatalogoService" binding="tns:BasicHttpBinding_ICatalogoService">
+      <soap:address location="http://localhost:2247/LogisticaDB_ServiceWCF.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IDepartamentoService" binding="tns:BasicHttpBinding_IDepartamentoService">
+      <soap:address location="http://localhost:2247/LogisticaDB_ServiceWCF.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IEntidadService" binding="tns:BasicHttpBinding_IEntidadService">
+      <soap:address location="http://localhost:2247/LogisticaDB_ServiceWCF.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IProyectoService" binding="tns:BasicHttpBinding_IProyectoService">
+      <soap:address location="http://localhost:2247/LogisticaDB_ServiceWCF.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IRequerimientoService" binding="tns:BasicHttpBinding_IRequerimientoService">
+      <soap:address location="http://localhost:2247/LogisticaDB_ServiceWCF.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IRequerimiento_DetalleService" binding="tns:BasicHttpBinding_IRequerimiento_DetalleService">
+      <soap:address location="http://localhost:2247/LogisticaDB_ServiceWCF.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IUnidad_MedidaService" binding="tns:BasicHttpBinding_IUnidad_MedidaService">
+      <soap:address location="http://localhost:2247/LogisticaDB_ServiceWCF.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IUsuarioService" binding="tns:BasicHttpBinding_IUsuarioService">
+      <soap:address location="http://localhost:2247/LogisticaDB_ServiceWCF.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

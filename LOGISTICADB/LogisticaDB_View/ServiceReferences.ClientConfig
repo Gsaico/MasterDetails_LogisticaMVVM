@@ -1,0 +1,77 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IAlmacenService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_ICatalogoService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IDepartamentoService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IEntidadService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IProyectoService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IRequerimientoService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IRequerimiento_DetalleService"
+                    maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IUnidad_MedidaService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IUsuarioService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:2247/LogisticaDB_ServiceWCF.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IAlmacenService"
+                contract="ServiceReference_LogisticaDB.IAlmacenService" name="BasicHttpBinding_IAlmacenService" />
+            <endpoint address="http://localhost:2247/LogisticaDB_ServiceWCF.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ICatalogoService"
+                contract="ServiceReference_LogisticaDB.ICatalogoService" name="BasicHttpBinding_ICatalogoService" />
+            <endpoint address="http://localhost:2247/LogisticaDB_ServiceWCF.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDepartamentoService"
+                contract="ServiceReference_LogisticaDB.IDepartamentoService"
+                name="BasicHttpBinding_IDepartamentoService" />
+            <endpoint address="http://localhost:2247/LogisticaDB_ServiceWCF.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IEntidadService"
+                contract="ServiceReference_LogisticaDB.IEntidadService" name="BasicHttpBinding_IEntidadService" />
+            <endpoint address="http://localhost:2247/LogisticaDB_ServiceWCF.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IProyectoService"
+                contract="ServiceReference_LogisticaDB.IProyectoService" name="BasicHttpBinding_IProyectoService" />
+            <endpoint address="http://localhost:2247/LogisticaDB_ServiceWCF.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IRequerimientoService"
+                contract="ServiceReference_LogisticaDB.IRequerimientoService"
+                name="BasicHttpBinding_IRequerimientoService" />
+            <endpoint address="http://localhost:2247/LogisticaDB_ServiceWCF.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IRequerimiento_DetalleService"
+                contract="ServiceReference_LogisticaDB.IRequerimiento_DetalleService"
+                name="BasicHttpBinding_IRequerimiento_DetalleService" />
+            <endpoint address="http://localhost:2247/LogisticaDB_ServiceWCF.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IUnidad_MedidaService"
+                contract="ServiceReference_LogisticaDB.IUnidad_MedidaService"
+                name="BasicHttpBinding_IUnidad_MedidaService" />
+            <endpoint address="http://localhost:2247/LogisticaDB_ServiceWCF.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IUsuarioService"
+                contract="ServiceReference_LogisticaDB.IUsuarioService" name="BasicHttpBinding_IUsuarioService" />
+        </client>
+    </system.serviceModel>
+</configuration>
