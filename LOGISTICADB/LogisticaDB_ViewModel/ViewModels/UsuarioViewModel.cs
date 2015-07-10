@@ -26,14 +26,18 @@ namespace LogisticaDB_ViewModel.ViewModels
         public usuarioDTO ItemUsuario
         {
             get { return itemusuario; }
-            set { itemusuario = value; RaisePropertyChanged("ItemUsuario"); }
+            set { itemusuario = value; 
+                RaisePropertyChanged("ItemUsuario"); 
+                }
         }
 
         private ObservableCollection<usuarioDTO> listausuarios;
         public ObservableCollection<usuarioDTO> ListaUsuarios
         {
             get { return listausuarios; }
-            set { listausuarios = value; RaisePropertyChanged("ListaUsuarios"); }
+            set { listausuarios = value; 
+                RaisePropertyChanged("ListaUsuarios"); 
+                }
         }         
 
         #endregion
@@ -46,17 +50,152 @@ namespace LogisticaDB_ViewModel.ViewModels
 
             ListaUsuarios = new ObservableCollection<usuarioDTO>();
             ItemUsuario = new usuarioDTO();
-            
-           // InsertarCommand = new CommandBase(p => true,p=> InsertarCommandAction() ) { IsEnable = true };
-          //  EliminarCommand = new CommandBase(p => true, p => EliminarCommandAction()) { IsEnable = true };
-          //  BuscarCommand = new CommandBase(p => true, p => BuscarCommandAction()) { IsEnable = true };
+
+           _ServicioUsuario.ListarUsuariosAsync();
+           _ServicioUsuario.ListarUsuariosCompleted += _ServicioUsuario_ListarUsuariosCompletedBusquedaRapida;
+           //ListarUsuariosCommandAction();
+         
             ListarUsuariosCommand = new CommandBase(p => true, p => ListarUsuariosCommandAction()) { IsEnable = true };
-            //NuevoCommand = new CommandBase(p => true, p => NuevoCommandAction()) { IsEnable = true };
+            GuardarUsuarioCommand = new CommandBase(p => true, p => GuardarUsuarioCommandAccion()) { IsEnable = true };
+            EliminarUsuarioCommand = new CommandBase(p => true, p => EliminarUsuarioCommandAccion()) { IsEnable = true };
+            NuevoUsuarioCommand = new CommandBase(p => true, p => NuevoUsuarioCommandAccion()) { IsEnable = true };
                         
         }
 
+        private void _ServicioUsuario_ListarUsuariosCompletedBusquedaRapida(object sender, ListarUsuariosCompletedEventArgs e)
+        {
+            _ServicioUsuario.ListarUsuariosCompleted -= _ServicioUsuario_ListarUsuariosCompletedBusquedaRapida;
+
+            ListaUsuariosBusquedaRapida = e.Result;
+        }
+
+        
+
+
+        #region Basicos
+        private void EliminarUsuarioCommandAccion()
+        {
+            if (ItemUsuario != null && ItemUsuario.ID_Usuario  != 0)
+            {
+                MessageBoxResult result = MessageBox.Show("Esta usted seguro de eliminar el usuario: " +
+                    ItemUsuario.nombres , "Eliminar Usuario", MessageBoxButton.OKCancel);
+
+                if (result == MessageBoxResult.OK)
+                {
+                    _ServicioUsuario.EliminarUsuarioAsync(ItemUsuario.ID_Usuario );
+                    _ServicioUsuario.EliminarUsuarioCompleted+=_ServicioUsuario_EliminarUsuarioCompleted; 
+                }
+                else
+                {
+
+                    MessageBox.Show("No hay datos del usuario, para almacenar en el sistema");
+                }
+
+            }
+            else
+            {
+
+                MessageBox.Show("Seleccione Usuario");
+            }
+        }
+
+        private void _ServicioUsuario_EliminarUsuarioCompleted(object sender, EliminarUsuarioCompletedEventArgs e)
+        {
+            _ServicioUsuario.EliminarUsuarioCompleted -= _ServicioUsuario_EliminarUsuarioCompleted; 
+            if (e.Result == true)
+            {
+                ListarUsuariosCommandAction();
+                MessageBox.Show("El  Usuario se elimino correctamente");
+                
+            }
+            else
+            {
+                MessageBox.Show(e.Error.Message + e.Error);
+            }
+        }
+
+        private void GuardarUsuarioCommandAccion()
+        {
+            try
+            {
+                if (ItemUsuario.ID_Usuario  == 0)//
+                {
+                    _ServicioUsuario.InsertarUsuarioAsync(ItemUsuario);
+                    _ServicioUsuario.InsertarUsuarioCompleted+=_ServicioUsuario_InsertarUsuarioCompleted;
+                   //Insert
+                }
+                else
+                {
+                    _ServicioUsuario.ActualizarUsuarioAsync(ItemUsuario);
+                    _ServicioUsuario.ActualizarUsuarioCompleted += _ServicioUsuario_ActualizarUsuarioCompleted;
+                   //Update
+                }
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message + "Error al guardar Usuario");
+            }
+        }
+
+        private void _ServicioUsuario_InsertarUsuarioCompleted(object sender, InsertarUsuarioCompletedEventArgs e)
+        {
+            _ServicioUsuario.InsertarUsuarioCompleted -= _ServicioUsuario_InsertarUsuarioCompleted;
+            if (e.Result != null)//?????
+            {
+                MessageBox.Show("El  Usuario se ingreso correctamente a la BD, con el Nombre: " + itemusuario.nombres  );
+                ListarUsuariosCommandAction();
+            }
+            else
+            {
+                MessageBox.Show(e.Error.Message + e.Error);
+            }
+        }
+
+        private void _ServicioUsuario_ActualizarUsuarioCompleted(object sender, ActualizarUsuarioCompletedEventArgs e)
+        {
+            _ServicioUsuario.ActualizarUsuarioCompleted -= _ServicioUsuario_ActualizarUsuarioCompleted;
+            if (e.Result == true)
+            {
+                MessageBox.Show("El  Usuario se actualizo correctamente");
+                ListarUsuariosCommandAction();
+            }
+            else
+            {
+                MessageBox.Show(e.Error.Message + e.Error);
+            }
+        }
+
+        private void NuevoUsuarioCommandAccion()
+        {
+            if (ItemUsuario != null && ItemUsuario.ID_Usuario  != 0)
+            {
+                MessageBoxResult result = MessageBox.Show("Realmente desea ingresar un nuevo usuario.", "Nuevo Usuario",
+                    MessageBoxButton.OKCancel);
+
+                if (result == MessageBoxResult.OK)
+                {
+                    ItemUsuario = new usuarioDTO();
+                }
+                else
+                {
+
+                    MessageBox.Show("No hay datos del usuario, para almacenar en el sistema");
+                }
+
+            }
+            else
+            {
+
+                ItemUsuario = new usuarioDTO();
+            }
+        }
+
+        
+
         private void ListarUsuariosCommandAction()
         {
+            
             try
             {
                 _ServicioUsuario.ListarUsuariosAsync();
@@ -71,28 +210,56 @@ namespace LogisticaDB_ViewModel.ViewModels
 
         private void _ServicioUsuario_ListarUsuariosCompleted(object sender, ListarUsuariosCompletedEventArgs e)
         {
+            _ServicioUsuario.ListarUsuariosCompleted -= _ServicioUsuario_ListarUsuariosCompleted;
+            
             ListaUsuarios.Clear();
-
+            
 
             if (e.Error != null)
             {
                 MessageBox.Show(e.Error.Message + e.Error);
                 return;
             }
-            else
-            {
+           
              
                 ListaUsuarios = e.Result; 
-            }
-            _ServicioUsuario.ListarUsuariosCompleted -= _ServicioUsuario_ListarUsuariosCompleted;
+           
+            
         }
 
+        #endregion
+
+        #region ComplejoBusqueda
+
+        private usuarioDTO itemusuariobusquedarapida;
+        public usuarioDTO ItemUsuarioBusquedaRapida
+        {
+            get { return itemusuariobusquedarapida; }
+            set
+            {
+                itemusuariobusquedarapida = value;
+                RaisePropertyChanged("ItemUsuarioBusquedaRapida"); 
+                }
+        }
+
+        private ObservableCollection<usuarioDTO> listausuariosbusquedarapida;
+        public ObservableCollection<usuarioDTO> ListaUsuariosBusquedaRapida
+        {
+            get { return listausuariosbusquedarapida; }
+            set
+            {
+                listausuariosbusquedarapida = value;
+                RaisePropertyChanged("ListaUsuariosBusquedaRapida"); 
+                }
+        }
+        //
+        #endregion
+
         #region push
-        public ICommand InsertarCommand { get; set; }
-        public ICommand EliminarCommand { get; set; }
-        public ICommand BuscarCommand { get; set; }
+        public ICommand GuardarUsuarioCommand { get; set; }
+        public ICommand EliminarUsuarioCommand { get; set; }
         public ICommand ListarUsuariosCommand { get; set; }
-        public ICommand NuevoCommand { get; set; }
+        public ICommand NuevoUsuarioCommand { get; set; }
         #endregion 
     }
 }

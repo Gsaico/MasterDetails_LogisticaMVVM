@@ -32,9 +32,28 @@
                 <sdk:DataGridTextColumn Header="Nombres" Width="100" Binding="{Binding nombres}"/>
             </sdk:DataGrid.Columns>
         </sdk:DataGrid>
-        
+
         <sdk:Label Content="Buscar"  HorizontalAlignment="Left" Height="23" Margin="671,98,0,0" VerticalAlignment="Top" Width="46"/>
-        <sdk:AutoCompleteBox x:Name="acBusquedaUsuarios" HorizontalAlignment="Left" Height="28" Margin="722,94,0,0" VerticalAlignment="Top" Width="268"/>
+
+        <sdk:AutoCompleteBox x:Name="acBusquedaUsuarios" 
+                             ItemsSource="{Binding ListaUsuariosBusquedaRapida,Mode=TwoWay}" 
+                             SelectedItem="{Binding ItemUsuarioBusquedaRapida,Mode=TwoWay}" 
+                             ValueMemberPath="nombres" 
+                             Text="{Binding ItemUsuarioBusquedaRapida.nombres}" 
+                             FilterMode="Contains"  
+                             HorizontalAlignment="Left" Height="28" Margin="722,94,0,0" VerticalAlignment="Top" Width="268">
+            <sdk:AutoCompleteBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        
+                        <TextBlock Text="{Binding nombres}" />
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </sdk:AutoCompleteBox.ItemTemplate>
+        </sdk:AutoCompleteBox>
+        
+        
         <sdk:Label Content="ID :" Height="23" Margin="0,104,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
         <sdk:Label Content="Departamento :" Height="23" Margin="0,135,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
         <sdk:Label Content="DNI :" Height="23" Margin="0,168,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
@@ -47,6 +66,10 @@
         <TextBox x:Name ="txtEstado" Text="{Binding ItemUsuario.estado, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,394,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
         <sdk:Label Content="Estado :" Height="23" Margin="0,394,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
         <Button Command="{Binding ListarUsuariosCommand}" Content="Listar Usuarios" HorizontalAlignment="Left" Margin="671,480,0,0" VerticalAlignment="Top" Width="107"/>
+        <sdk:Label Content="Datos del Usuario" HorizontalAlignment="Center" Height="28" Margin="10,60,353,0" VerticalAlignment="Top" Width="637" Background="#FF00A1D1" Foreground="#FFF7F3F3" FontSize="12"/>
+        <Button Command="{Binding NuevoUsuarioCommand}" Content="Nuevo" HorizontalAlignment="Left" Margin="71,480,0,0" VerticalAlignment="Top" Width="107"/>
+        <Button Command="{Binding GuardarUsuarioCommand}" Content="Guardar" HorizontalAlignment="Left" Margin="183,480,0,0" VerticalAlignment="Top" Width="107"/>
+        <Button Command="{Binding EliminarUsuarioCommand}" Content="Eliminar" HorizontalAlignment="Left" Margin="295,480,0,0" VerticalAlignment="Top" Width="107"/>
 
     </Grid>
 </UserControl>
