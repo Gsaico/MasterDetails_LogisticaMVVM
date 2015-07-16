@@ -13,6 +13,7 @@ using System.Text;
 using System.Linq;
 using Dominio.Dtos;
 using PersistenciaDatos;
+using System.Data.Objects.DataClasses;
 
 namespace Dominio.Convertidores
 {
@@ -25,24 +26,57 @@ namespace Dominio.Convertidores
         
         public static usuario ToEntity(this usuarioDTO dto)
         {
-            if (dto == null) return null;
 
+            if (dto == null) return null;
             var entity = new usuario();
 
-            entity.ID_Usuario = dto.ID_Usuario;
-            entity.ID_Departamento = dto.ID_Departamento;
-            entity.DNI = dto.DNI;
-            entity.password = dto.password;
-            entity.nombres = dto.nombres;
-            entity.apellidos = dto.apellidos;
-            entity.fecha_nacimiento = dto.fecha_nacimiento;
-            entity.email = dto.email;
-            entity.celular = dto.celular;
-            entity.estado = dto.estado;
+            if (dto.proyecto == null)
+                    {
 
-            
+                        entity.ID_Usuario = dto.ID_Usuario;
+                        entity.ID_Departamento = dto.ID_Departamento;
+                        entity.DNI = dto.DNI;
+                        entity.password = dto.password;
+                        entity.nombres = dto.nombres;
+                        entity.apellidos = dto.apellidos;
+                        entity.fecha_nacimiento = dto.fecha_nacimiento;
+                        entity.email = dto.email;
+                        entity.celular = dto.celular;
+                        entity.estado = dto.estado;
+                       // entity.proyecto = detallesEntities;
+
+            }
+
+
+            if (dto.proyecto != null)
+            {
+                //
+                EntityCollection<proyecto> detallesEntities = new EntityCollection<proyecto>();
+
+                foreach (var detalleDto in dto.proyecto)
+                {
+                    var detalleEntity = Convertidores.proyectoAssembler.ToEntity(detalleDto);
+                    detallesEntities.Add(detalleEntity);
+                }
+                
+                entity.ID_Usuario = dto.ID_Usuario;
+                entity.ID_Departamento = dto.ID_Departamento;
+                entity.DNI = dto.DNI;
+                entity.password = dto.password;
+                entity.nombres = dto.nombres;
+                entity.apellidos = dto.apellidos;
+                entity.fecha_nacimiento = dto.fecha_nacimiento;
+                entity.email = dto.email;
+                entity.celular = dto.celular;
+                entity.estado = dto.estado;
+                entity.proyecto = detallesEntities;
+
+            }
 
             return entity;
+            
+           
+
         }
 
         /// <summary>
@@ -66,7 +100,8 @@ namespace Dominio.Convertidores
             dto.celular = entity.celular;
             dto.estado = entity.estado;
 
-           
+            dto.proyecto = Dominio.Convertidores.proyectoAssembler.ToDTOs(entity.proyecto);
+           //     dto.proyecto = proyectoDTO; 
 
             return dto;
         }
@@ -107,6 +142,24 @@ namespace Dominio.Convertidores
             entity.celular = dto.celular;
             entity.estado = dto.estado;
 
+            var modelo = new PersistenciaDatos.BDlogisticaEntities();
+            foreach (var detallenuevo in dto.proyecto.Where(d => d.ID_Proyecto  == 0))
+            {
+                detallenuevo.ID_Usuario   = dto.ID_Usuario;
+                modelo.proyecto.Add(Convertidores.proyectoAssembler.ToEntity(detallenuevo));
+            }
+
+            foreach (var detalleactualizar in dto.proyecto.Where(d => d.ID_Proyecto != 0))
+            {
+                var detalleantiguo = modelo.proyecto.FirstOrDefault(d => d.ID_Proyecto == detalleactualizar.ID_Proyecto);
+                if (detalleantiguo != null)
+                {
+                    Convertidores.proyectoAssembler.Actualizar(detalleactualizar,detalleantiguo);
+                }
+            }
+
+         
+            modelo.SaveChanges();
         }
     }
 }

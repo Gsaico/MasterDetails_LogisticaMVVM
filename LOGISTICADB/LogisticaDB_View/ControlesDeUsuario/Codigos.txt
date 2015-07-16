@@ -1,0 +1,1 @@
+﻿ Text="{Binding ElementName=cboDepartamentos,Path=SelectedItem.ID_Departamento}"  //para recuperar el valor del combobox

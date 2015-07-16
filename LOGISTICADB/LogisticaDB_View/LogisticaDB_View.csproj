@@ -90,6 +90,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ControlesDeUsuario\RequerimientoUC.xaml.cs">
+      <DependentUpon>RequerimientoUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ControlesDeUsuario\UsuarioUC.xaml.cs">
       <DependentUpon>UsuarioUC.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ControlesDeUsuario\RequerimientoUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Usuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -146,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
+    <Content Include="ControlesDeUsuario\Codigos.txt" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

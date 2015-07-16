@@ -12,6 +12,7 @@ namespace Dominio.Querys.Proyecto
         int InsertarProyecto(Dtos.proyectoDTO    dto);
         bool ActualizarProyecto(Dtos.proyectoDTO dto);
         bool EliminarProyecto(int idproyecto);
+        bool EliminarProyectosXidUsuario(int idusuario);
         List<Dtos.proyectoDTO> ListarProyectoXnombre(string nombreproyecto);
         List<Dtos.proyectoDTO> ListarProyectoXidusuario(int idusuario);
         List<Dtos.proyectoDTO> ListarProyectos();

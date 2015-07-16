@@ -1,0 +1,34 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="LogisticaDB_View.ControlesDeUsuario.RequerimientoUC"
+    mc:Ignorable="d"
+    d:DesignHeight="750" d:DesignWidth="1000">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <sdk:Label Content="Requerimiento" HorizontalAlignment="Center" Height="28" Margin="10,13,10,0" VerticalAlignment="Top" Width="980" Background="#FF00A1D1" Foreground="#FFF7F3F3" FontSize="16"/>
+        <sdk:Label Content="Detalle de Requerimiento" HorizontalAlignment="Center" Height="28" Margin="10,233,10,0" VerticalAlignment="Top" Width="980" Background="#FF00A1D1" Foreground="#FFF7F3F3" FontSize="16"/>
+        <TextBox x:Name="txtID_Requerimiento" HorizontalAlignment="Left" Height="23" Margin="119,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
+        <ComboBox x:Name="cboID_Usuario" HorizontalAlignment="Left" Margin="119,90,0,0" VerticalAlignment="Top" Width="475"/>
+        <ComboBox x:Name="cboID_Almacen" HorizontalAlignment="Left" Margin="119,118,0,0" VerticalAlignment="Top" Width="475"/>
+        <sdk:DatePicker x:Name="dtpfecha"  HorizontalAlignment="Left" Height="23" Margin="381,58,0,0" VerticalAlignment="Top" Width="213"/>
+        <TextBox x:Name="txtdetalle_requerimiento" HorizontalAlignment="Left" Height="23" Margin="119,149,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="871"/>
+        <TextBox x:Name="txtobservaciones_requerimiento" HorizontalAlignment="Left" Height="23" Margin="119,177,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="871"/>
+        <TextBox x:Name="txtestado" HorizontalAlignment="Left" Height="23" Margin="119,205,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="115"/>
+        <sdk:Label Content="Codigo :" Height="23" Margin="0,62,886,0" VerticalAlignment="Top" Width="99" HorizontalAlignment="Right"/>
+        <sdk:Label Content="Solicitante :" Height="23" Margin="0,90,886,0" VerticalAlignment="Top" Width="99" HorizontalAlignment="Right"/>
+        <sdk:Label Content="Lugar de Entrega :" Height="23" Margin="0,118,886,0" VerticalAlignment="Top" Width="104" HorizontalAlignment="Right"/>
+        <sdk:Label Content="Fecha :" Height="23" Margin="0,58,624,0" VerticalAlignment="Top" Width="99" HorizontalAlignment="Right"/>
+        <sdk:Label Content="Detalle :" Height="23" Margin="0,149,886,0" VerticalAlignment="Top" Width="99" HorizontalAlignment="Right"/>
+        <sdk:Label Content="Observaciones :" Height="23" Margin="0,177,886,0" VerticalAlignment="Top" Width="99" HorizontalAlignment="Right"/>
+        <sdk:Label Content="Estado :" Height="23" Margin="0,205,886,0" VerticalAlignment="Top" Width="99" HorizontalAlignment="Right"/>
+        <sdk:DataGrid x:Name="dgvDetallerequerimiento"  HorizontalAlignment="Left" Height="397" Margin="10,296,0,0" VerticalAlignment="Top" Width="980"/>
+        <Button Command="{Binding NuevoUsuarioCommand}" Content="Nuevo" HorizontalAlignment="Left" Margin="883,87,0,0" VerticalAlignment="Top" Width="107"/>
+        <Button Command="{Binding GuardarUsuarioCommand}" Content="Guardar" HorizontalAlignment="Left" Margin="883,114,0,0" VerticalAlignment="Top" Width="107"/>
+        <Button Command="{Binding EliminarUsuarioCommand}" Content="Eliminar" HorizontalAlignment="Left" Margin="883,59,0,0" VerticalAlignment="Top" Width="107"/>
+
+    </Grid>
+</UserControl>

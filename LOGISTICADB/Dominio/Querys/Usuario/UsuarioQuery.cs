@@ -21,7 +21,11 @@ namespace Dominio.Querys
                     var entity = dto.ToEntity();
                     modelo.usuario.Add(entity);
                     modelo.SaveChanges();
+
+                                       
                     return entity.ID_Usuario;
+
+
                 }
             }
             catch (Exception)
@@ -40,6 +44,10 @@ namespace Dominio.Querys
                     if (w == null) return false;
                     Dominio.Convertidores.usuarioAssembler.Actualizar(dto, w);
                     modelo.SaveChanges();
+
+                 
+
+
                     return true;
                 }
             }
@@ -59,6 +67,11 @@ namespace Dominio.Querys
                     if (x == null) return false;
                     modelo.usuario.Remove(x);
                     modelo.SaveChanges();
+                    //para eliminar el detalle
+                   Dominio.Querys.Proyecto.IProyectoQuery productoquery = new Dominio.Querys.Querys();
+
+                   productoquery.EliminarProyectosXidUsuario(idusuario);
+
                     return true;
                 }
             }
@@ -68,7 +81,7 @@ namespace Dominio.Querys
             }
         }
 
-        public List<Dtos.usuarioDTO> ListarUsuarioXnombre(string nombresusuario)
+        public IEnumerable<Dtos.usuarioDTO> ListarUsuarioXnombre(string nombresusuario)
         {
             try
             {
@@ -87,7 +100,7 @@ namespace Dominio.Querys
             };
         }
 
-        public List<Dtos.usuarioDTO> ListarUsuarios()
+        public IEnumerable<Dtos.usuarioDTO> ListarUsuarios()
         {
             try
             {
@@ -96,6 +109,7 @@ namespace Dominio.Querys
                     var entity = modelo.usuario.Select(q => q).ToList();
 
                     if (entity == null) return null;
+
                     return Dominio.Convertidores.usuarioAssembler.ToDTOs(entity);
                 }
             }

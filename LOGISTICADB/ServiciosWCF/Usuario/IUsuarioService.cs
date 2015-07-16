@@ -18,9 +18,10 @@ namespace ServiciosWCF.Usuario
         [OperationContract]
     bool EliminarUsuario(int idusuario);
         [OperationContract]
-    List<Dominio.Dtos.usuarioDTO> ListarUsuarioXnombre(string nombresusuario);
+        IEnumerable<Dominio.Dtos.usuarioDTO> ListarUsuarioXnombre(string nombresusuario);
         [OperationContract]
-    List<Dominio.Dtos.usuarioDTO> ListarUsuarios();
+        IEnumerable<Dominio.Dtos.usuarioDTO> ListarUsuarios();
+
          [OperationContract]
     Dominio.Dtos.usuarioDTO BuscarUsuarioPorID(int idusuario);
     }

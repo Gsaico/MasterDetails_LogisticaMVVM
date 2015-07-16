@@ -67,7 +67,24 @@ namespace Dominio.Querys
                 throw new NotImplementedException();
             }
         }
-
+        public bool EliminarProyectosXidUsuario(int idusuario)
+        {
+            try
+            {
+                using (var modelo = new PersistenciaDatos.BDlogisticaEntities())
+                {
+                   PersistenciaDatos.proyecto  x = modelo.proyecto.Where(q => q.ID_Usuario == idusuario).Select(q => q).FirstOrDefault ();
+                    if (x == null) return false;
+                    modelo.proyecto.Remove(x);
+                    modelo.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException();
+            }
+        }
         public List<Dtos.proyectoDTO> ListarProyectoXnombre(string nombreproyecto)
         {
             try

@@ -12,8 +12,8 @@ namespace LogicaDeNegocios.Usuario
         int InsertarUsuario(Dominio.Dtos.usuarioDTO dto);
         bool ActualizarUsuario(Dominio.Dtos.usuarioDTO dto);
         bool EliminarUsuario(int idusuario);
-        List<Dominio.Dtos.usuarioDTO> ListarUsuarioXnombre(string nombresusuario);
-        List<Dominio.Dtos.usuarioDTO> ListarUsuarios();
+        IEnumerable<Dominio.Dtos.usuarioDTO> ListarUsuarioXnombre(string nombresusuario);
+        IEnumerable<Dominio.Dtos.usuarioDTO> ListarUsuarios();
         Dominio.Dtos.usuarioDTO BuscarUsuarioPorID(int idusuario);
     }
 }

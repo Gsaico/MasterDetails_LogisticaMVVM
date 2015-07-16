@@ -12,8 +12,8 @@ namespace Dominio.Querys.Usuario
         int InsertarUsuario(Dtos.usuarioDTO   dto);
         bool ActualizarUsuario(Dtos.usuarioDTO dto);
         bool EliminarUsuario(int idusuario);
-        List<Dtos.usuarioDTO> ListarUsuarioXnombre(string nombresusuario);
-        List<Dtos.usuarioDTO> ListarUsuarios();
+        IEnumerable<Dtos.usuarioDTO> ListarUsuarioXnombre(string nombresusuario);
+        IEnumerable<Dtos.usuarioDTO> ListarUsuarios();
         Dtos.usuarioDTO BuscarUsuarioPorID(int idusuario);
     }
 }

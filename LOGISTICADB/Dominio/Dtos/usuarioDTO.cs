@@ -50,7 +50,7 @@ namespace Dominio.Dtos
         public departamentoDTO departamento { get; set; }
 
         [DataMember()]
-        public List<proyectoDTO> proyecto { get; set; }
+        public IEnumerable<proyectoDTO> proyecto { get; set; }
 
         [DataMember()]
         public List<requerimientoDTO> requerimiento { get; set; }
@@ -59,7 +59,7 @@ namespace Dominio.Dtos
         {
         }
 
-        public usuarioDTO(Int32 iD_Usuario, Nullable<Int32> iD_Departamento, String dNI, String password, String nombres, String apellidos, Nullable<DateTime> fecha_nacimiento, String email, String celular, String estado, departamentoDTO departamento, List<proyectoDTO> proyecto, List<requerimientoDTO> requerimiento)
+        public usuarioDTO(Int32 iD_Usuario, Nullable<Int32> iD_Departamento, String dNI, String password, String nombres, String apellidos, Nullable<DateTime> fecha_nacimiento, String email, String celular, String estado, departamentoDTO departamento, IEnumerable<proyectoDTO> proyecto, List<requerimientoDTO> requerimiento)
         {
 			this.ID_Usuario = iD_Usuario;
 			this.ID_Departamento = iD_Departamento;

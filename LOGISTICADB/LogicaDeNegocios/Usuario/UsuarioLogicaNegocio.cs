@@ -46,7 +46,7 @@ namespace LogicaDeNegocios
             }
         }
 
-        public List<Dominio.Dtos.usuarioDTO> ListarUsuarioXnombre(string nombresusuario)
+        public IEnumerable<Dominio.Dtos.usuarioDTO> ListarUsuarioXnombre(string nombresusuario)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace LogicaDeNegocios
             }
         }
 
-        public List<Dominio.Dtos.usuarioDTO> ListarUsuarios()
+        public IEnumerable<Dominio.Dtos.usuarioDTO> ListarUsuarios()
         {
             try
             {

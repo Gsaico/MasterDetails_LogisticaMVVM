@@ -5,35 +5,30 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="LogisticaDB_View.ControlesDeUsuario.UsuarioUC"
      xmlns:vm="clr-namespace:LogisticaDB_ViewModel.ViewModels;assembly=LogisticaDB_ViewModel"
-    mc:Ignorable="d"
-    d:DesignHeight="750" d:DesignWidth="1000">
+    mc:Ignorable="d" d:DesignWidth="1000" Height="573">
     <UserControl.Resources>
         <vm:UsuarioViewModel  x:Key="UsuarioViewModel" />
     </UserControl.Resources>
 
-    <Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource UsuarioViewModel}}" Background="White">
+    <Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource UsuarioViewModel}}" Background="White" Height="740" VerticalAlignment="Top">
 
-        <TextBox x:Name ="txtUsuarioID"  Text="{Binding ItemUsuario.ID_Usuario, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,104,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" IsReadOnly="True"/>
-        <TextBox x:Name ="txtDepartamento" Text="{Binding ItemUsuario.ID_Departamento, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,135,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
-        <TextBox x:Name ="txtDNI" Text="{Binding ItemUsuario.DNI, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,168,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
-        <TextBox x:Name ="txtPassword" Text="{Binding ItemUsuario.password, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,201,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
-        <TextBox x:Name ="txtNombres" Text="{Binding ItemUsuario.nombres, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,234,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
-        <TextBox x:Name ="txtApellidos" Text="{Binding ItemUsuario.apellidos, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,267,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
-        <TextBox x:Name ="txtFechaNacimiento" Text="{Binding ItemUsuario.fecha_nacimiento, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,300,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
-        <TextBox x:Name ="txtEmail" Text="{Binding ItemUsuario.email, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,333,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
-        <TextBox x:Name ="txtCelular" Text="{Binding ItemUsuario.celular, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,366,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
+        <TextBox x:Name ="txtUsuarioID"  Text="{Binding ItemUsuario.ID_Usuario, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" IsReadOnly="True"/>
+        <TextBox x:Name ="txtDNI" Text="{Binding ItemUsuario.DNI, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,151,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
+        <TextBox x:Name ="txtPassword" Text="{Binding ItemUsuario.password, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,184,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
+        <TextBox x:Name ="txtNombres" Text="{Binding ItemUsuario.nombres, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,217,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
+        <TextBox x:Name ="txtApellidos" Text="{Binding ItemUsuario.apellidos, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,250,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
+        <TextBox x:Name ="txtEmail" Text="{Binding ItemUsuario.email, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="555,177,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110" Background="White"/>
+        <TextBox x:Name ="txtCelular" Text="{Binding ItemUsuario.celular, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="555,210,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110" Background="White"/>
 
         <sdk:Label Content="Usuarios" HorizontalAlignment="Center" Height="28" Margin="10,13,10,0" VerticalAlignment="Top" Width="980" Background="#FF00A1D1" Foreground="#FFF7F3F3" FontSize="16"/>
-        <sdk:Label Content="Listado De Usuarios" HorizontalAlignment="Center" Height="28" Margin="671,60,10,0" VerticalAlignment="Top" Width="319" Background="#FF00A1D1" Foreground="#FFF7F3F3" FontSize="12"/>
+        <sdk:Label Content="Listado De Usuarios" HorizontalAlignment="Center" Height="28" Margin="671,49,10,0" VerticalAlignment="Top" Width="319" Background="#FF00A1D1" Foreground="#FFF7F3F3" FontSize="12"/>
 
-        <sdk:DataGrid  AutoGenerateColumns="False" ItemsSource="{Binding ListaUsuarios,Mode=TwoWay}" SelectedItem="{Binding ItemUsuario,Mode=TwoWay}" HorizontalAlignment="Left" Height="349" Margin="671,126,0,0" VerticalAlignment="Top" Width="319">
+        <sdk:DataGrid  x:Name="dgvListaDeUsuarios" AutoGenerateColumns="False" ItemsSource="{Binding ListaUsuarios,Mode=TwoWay}" SelectedItem="{Binding ItemUsuario,Mode=TwoWay}" HorizontalAlignment="Left" Height="235" Margin="671,115,0,0" VerticalAlignment="Top" Width="319">
             <sdk:DataGrid.Columns>
                 <sdk:DataGridTextColumn Header="DNI" Width="100" Binding="{Binding DNI}"/>
                 <sdk:DataGridTextColumn Header="Nombres" Width="100" Binding="{Binding nombres}"/>
             </sdk:DataGrid.Columns>
         </sdk:DataGrid>
-
-        <sdk:Label Content="Buscar"  HorizontalAlignment="Left" Height="23" Margin="671,98,0,0" VerticalAlignment="Top" Width="46"/>
 
         <sdk:AutoCompleteBox x:Name="acBusquedaUsuarios" 
                              ItemsSource="{Binding ListaUsuariosBusquedaRapida,Mode=TwoWay}" 
@@ -41,35 +36,93 @@
                              ValueMemberPath="nombres" 
                              Text="{Binding ItemUsuarioBusquedaRapida.nombres}" 
                              FilterMode="Contains"  
-                             HorizontalAlignment="Left" Height="28" Margin="722,94,0,0" VerticalAlignment="Top" Width="268">
+                            
+                             HorizontalAlignment="Left" Height="28" Margin="671,83,0,0" VerticalAlignment="Top" Width="263">
             <sdk:AutoCompleteBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        
+
                         <TextBlock Text="{Binding nombres}" />
-                        
+
                     </StackPanel>
                 </DataTemplate>
             </sdk:AutoCompleteBox.ItemTemplate>
         </sdk:AutoCompleteBox>
-        
-        
-        <sdk:Label Content="ID :" Height="23" Margin="0,104,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
-        <sdk:Label Content="Departamento :" Height="23" Margin="0,135,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
-        <sdk:Label Content="DNI :" Height="23" Margin="0,168,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
-        <sdk:Label Content="Contraseña :" Height="23" Margin="0,201,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
-        <sdk:Label Content="Nombres :" Height="23" Margin="0,234,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
-        <sdk:Label Content="Apellidos :" Height="23" Margin="0,267,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
-        <sdk:Label Content="Fecha de Nacimiento :" Height="23" Margin="0,300,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
-        <sdk:Label Content="Email :" Height="23" Margin="0,333,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
-        <sdk:Label Content="Celular :" Height="23" Margin="0,366,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
-        <TextBox x:Name ="txtEstado" Text="{Binding ItemUsuario.estado, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,394,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260" Background="White"/>
-        <sdk:Label Content="Estado :" Height="23" Margin="0,394,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
-        <Button Command="{Binding ListarUsuariosCommand}" Content="Listar Usuarios" HorizontalAlignment="Left" Margin="671,480,0,0" VerticalAlignment="Top" Width="107"/>
-        <sdk:Label Content="Datos del Usuario" HorizontalAlignment="Center" Height="28" Margin="10,60,353,0" VerticalAlignment="Top" Width="637" Background="#FF00A1D1" Foreground="#FFF7F3F3" FontSize="12"/>
-        <Button Command="{Binding NuevoUsuarioCommand}" Content="Nuevo" HorizontalAlignment="Left" Margin="71,480,0,0" VerticalAlignment="Top" Width="107"/>
-        <Button Command="{Binding GuardarUsuarioCommand}" Content="Guardar" HorizontalAlignment="Left" Margin="183,480,0,0" VerticalAlignment="Top" Width="107"/>
-        <Button Command="{Binding EliminarUsuarioCommand}" Content="Eliminar" HorizontalAlignment="Left" Margin="295,480,0,0" VerticalAlignment="Top" Width="107"/>
+
+
+        <sdk:Label Content="ID :" Height="23" Margin="0,87,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
+        <sdk:Label Content="Departamento :" Height="23" Margin="0,118,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
+        <sdk:Label Content="DNI :" Height="23" Margin="0,151,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
+        <sdk:Label Content="Contraseña :" Height="23" Margin="0,184,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
+        <sdk:Label Content="Nombres :" Height="23" Margin="0,217,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
+        <sdk:Label Content="Apellidos :" Height="23" Margin="0,250,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
+        <sdk:Label Content="Fecha de Nacimiento :" Height="23" Margin="0,283,863,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
+        <sdk:Label Content="Email :" Height="23" Margin="0,177,450,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
+        <sdk:Label Content="Celular :" Height="23" Margin="0,210,450,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
+        <TextBox x:Name ="txtEstado" Text="{Binding ItemUsuario.estado, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="555,238,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110" Background="White"/>
+        <sdk:Label Content="Estado :" Height="23" Margin="0,238,450,0" VerticalAlignment="Top" Width="127" HorizontalAlignment="Right"/>
+        <Button Command="{Binding ListarUsuariosCommand}" Content="Listar Usuarios" HorizontalAlignment="Left" Margin="883,368,0,0" VerticalAlignment="Top" Width="107"/>
+        <sdk:Label Content="Datos del Usuario" HorizontalAlignment="Center" Height="28" Margin="10,49,334,0" VerticalAlignment="Top" Width="656" Background="#FF00A1D1" Foreground="#FFF7F3F3" FontSize="12"/>
+        <Button Command="{Binding NuevoUsuarioCommand}" Content="Nuevo Usuario" HorizontalAlignment="Left" Margin="555,81,0,0" VerticalAlignment="Top" Width="107" Background="#FF08B8F9" Foreground="#FF6B73C7"/>
+        <Button Command="{Binding GuardarUsuarioCommand}" Content="Guardar Usuario" HorizontalAlignment="Left" Margin="555,109,0,0" VerticalAlignment="Top" Width="107" Background="#FF08B8F9" Foreground="#FF6B73C7"/>
+        <Button Command="{Binding EliminarUsuarioCommand}" Content="Eliminar Usuario" HorizontalAlignment="Left" Margin="555,136,0,0" VerticalAlignment="Top" Width="107" Background="#FF08B8F9" Foreground="#FF6B73C7"/>
+
+        <ComboBox  x:Name="cboDepartamentos"  ItemsSource="{Binding ListaDepartamento,Mode=TwoWay}" SelectedItem="{Binding ItemDepartamento,Mode=TwoWay}"     SelectedValuePath = "ID_Departamento"  
+          DisplayMemberPath = "nombre_departamento"  SelectedValue="{Binding ItemUsuario.ID_Departamento, Mode=TwoWay}" HorizontalAlignment="Left" Margin="142,121,0,0" VerticalAlignment="Top" Width="260"/>
+
+        <sdk:DatePicker SelectedDate="{Binding ItemUsuario.fecha_nacimiento, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="142,283,0,0" VerticalAlignment="Top" Width="260"/>
+        <sdk:DataGrid AutoGenerateColumns="False"  
+                      ItemsSource="{Binding ItemUsuario.proyecto ,Mode=TwoWay}" 
+                    SelectedItem="{Binding ItemProyecto,Mode=TwoWay}"
+                                            
+                      x:Name="dgvProyectosDelUsuario"  HorizontalAlignment="Left" Height="94" Margin="9,438,0,0" VerticalAlignment="Top" Width="782" DataContext="{Binding}">
+            <sdk:DataGrid.Columns>
+
+                <sdk:DataGridTextColumn Binding="{Binding ID_Proyecto}" CanUserSort="True" CanUserReorder="True" CellStyle="{x:Null}" CanUserResize="True"
+                                        ClipboardContentBinding="{x:Null}" DisplayIndex="0" DragIndicatorStyle="{x:Null}"
+                                        EditingElementStyle="{x:Null}" ElementStyle="{x:Null}" Foreground="{x:Null}" FontWeight="Normal"
+                                        FontStyle="Normal" HeaderStyle="{x:Null}" Header="ID_Proyecto" IsReadOnly="False" MaxWidth="Infinity"
+                                        MinWidth="0" SortMemberPath="{x:Null}" Visibility="Visible" Width="Auto"/>
+                
+                <sdk:DataGridTextColumn Binding="{Binding year_ejec}" CanUserSort="True" CanUserReorder="True" CellStyle="{x:Null}" CanUserResize="True"
+                                        ClipboardContentBinding="{x:Null}" DisplayIndex="1" DragIndicatorStyle="{x:Null}"
+                                        EditingElementStyle="{x:Null}" ElementStyle="{x:Null}" Foreground="{x:Null}" FontWeight="Normal"
+                                        FontStyle="Normal" HeaderStyle="{x:Null}" Header="Año" IsReadOnly="False" MaxWidth="Infinity"
+                                        MinWidth="0" SortMemberPath="{x:Null}" Visibility="Visible" Width="Auto"/>
+
+
+                <sdk:DataGridTextColumn Binding="{Binding nombre}" CanUserSort="True" CanUserReorder="True" CellStyle="{x:Null}" CanUserResize="True"
+                                        ClipboardContentBinding="{x:Null}" DisplayIndex="2" DragIndicatorStyle="{x:Null}"
+                                        EditingElementStyle="{x:Null}" ElementStyle="{x:Null}" Foreground="{x:Null}" FontWeight="Normal"
+                                        FontStyle="Normal" HeaderStyle="{x:Null}" Header="Nombre" IsReadOnly="False" MaxWidth="Infinity"
+                                        MinWidth="0" SortMemberPath="{x:Null}" Visibility="Visible" Width="Auto"/>
+
+                <sdk:DataGridTextColumn Binding="{Binding estado}" CanUserSort="True" CanUserReorder="True" CellStyle="{x:Null}" CanUserResize="True"
+                                        ClipboardContentBinding="{x:Null}" DisplayIndex="3" DragIndicatorStyle="{x:Null}"
+                                        EditingElementStyle="{x:Null}" ElementStyle="{x:Null}" Foreground="{x:Null}" FontWeight="Normal"
+                                        FontStyle="Normal" HeaderStyle="{x:Null}" Header="Estado" IsReadOnly="False" MaxWidth="Infinity"
+                                        MinWidth="0" SortMemberPath="{x:Null}" Visibility="Visible" Width="Auto"/>
+
+
+
+
+            </sdk:DataGrid.Columns>
+
+        </sdk:DataGrid>
+        <sdk:Label Content="Proyectos Del Usuario" HorizontalAlignment="Center" Height="28" Margin="10,322,334,0" VerticalAlignment="Top" Width="656" Background="#FF00A1D1" Foreground="#FFF7F3F3" FontSize="12"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="73,383,0,0" TextWrapping="Wrap" Text="{Binding ItemProyecto.year_ejec , Mode=TwoWay}" VerticalAlignment="Top" Width="63"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="142,383,0,0" TextWrapping="Wrap" Text="{Binding ItemProyecto.nombre , Mode=TwoWay}" VerticalAlignment="Top" Width="418"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="565,383,0,0" TextWrapping="Wrap" Text="{Binding ItemProyecto.estado, Mode=TwoWay}" VerticalAlignment="Top" Width="101"/>
+        <sdk:Label Content="Año" Height="23" Margin="74,355,863,362" VerticalAlignment="Center" Width="63" HorizontalAlignment="Center"/>
+        <sdk:Label Content="Nombre" Height="23" Margin="142,353,440,364" VerticalAlignment="Center" Width="418" HorizontalAlignment="Center"/>
+        <sdk:Label Content="Estado" Height="23" Margin="565,353,335,364" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center"/>
+        <Button Command="{Binding GuardarProyectoCommand}" Content="Guardar Proyecto" HorizontalAlignment="Left" Margin="341,411,0,0" VerticalAlignment="Top" Width="107" Height="22"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,383,0,0" TextWrapping="Wrap" Text="{Binding ItemProyecto.ID_Proyecto, Mode=TwoWay}"  VerticalAlignment="Top" Width="58" IsReadOnly="True"/>
+        <sdk:Label Content="ID Proy." Height="23" Margin="10,353,932,364" VerticalAlignment="Center" Width="58" HorizontalAlignment="Center"/>
+        <Button Command="{Binding EliminarProyectoCommand}" Content="Eliminar Proyecto" HorizontalAlignment="Left" Margin="453,411,0,0" VerticalAlignment="Top" Width="107" Height="22"/>
+        <Button Command="{Binding NuevoProyectoCommand}" Content="Nuevo Proyecto" HorizontalAlignment="Left" Margin="10,411,0,0" VerticalAlignment="Top" Width="107" Height="22"/>
+        <Button Command="{Binding ListarUsuariosXNombreCommand}" Content="Buscar" HorizontalAlignment="Left" Margin="939,87,0,0" VerticalAlignment="Top" Width="51" Height="22"/>
+        <Button Command="{Binding AgregarProyectoCommand}" Content="Agregar proyecto" HorizontalAlignment="Left" Margin="122,411,0,0" VerticalAlignment="Top" Width="107"/>
 
     </Grid>
 </UserControl>

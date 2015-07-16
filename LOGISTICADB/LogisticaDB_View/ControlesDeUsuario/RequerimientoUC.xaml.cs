@@ -12,15 +12,10 @@ using System.Windows.Shapes;
 
 namespace LogisticaDB_View.ControlesDeUsuario
 {
-    public partial class UsuarioUC : UserControl
+    public partial class RequerimientoUC : UserControl
     {
-        public UsuarioUC()
+        public RequerimientoUC()
         {
-           // InitializeComponent();           
-          //  this.LayoutRoot.DataContext = new  LogisticaDB_ViewModel.ViewModels.UsuarioViewModel();
-
-            var vm = new LogisticaDB_ViewModel.ViewModels.UsuarioViewModel();
-            this.DataContext = vm;
             InitializeComponent();
         }
     }

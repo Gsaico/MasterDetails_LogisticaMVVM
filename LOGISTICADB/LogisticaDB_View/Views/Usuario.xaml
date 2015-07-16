@@ -10,7 +10,7 @@
            Title="Usuario Page">
     <Grid x:Name="LayoutRoot">
 
-        <ControlesDeUsuario:UsuarioUC HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="514"/>
+        <ControlesDeUsuario:UsuarioUC HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="738"/>
 
     </Grid>
 </navigation:Page>
