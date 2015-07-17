@@ -86,7 +86,7 @@ namespace Dominio.Convertidores
             dto.celular = entity.celular;
             dto.estado = entity.estado;
 
-            dto.proyecto = Dominio.Convertidores.proyectoAssembler.ToDTOs(entity.proyecto);
+            dto.proyecto = Convertidores.proyectoAssembler.ToDTOs(entity.proyecto);
            //dto.proyecto = proyectoDTO; 
 
             return dto;
@@ -109,8 +109,6 @@ namespace Dominio.Convertidores
         public static void Actualizar(Dominio.Dtos.usuarioDTO dto, PersistenciaDatos.usuario entity)
         {
 
-            
-            
             entity.ID_Usuario = dto.ID_Usuario;
             entity.ID_Departamento = dto.ID_Departamento;
             entity.DNI = dto.DNI;
@@ -121,7 +119,7 @@ namespace Dominio.Convertidores
             entity.email = dto.email;
             entity.celular = dto.celular;
             entity.estado = dto.estado;
-            // entity.proyecto = proyectoEntities;
+           
 
         
             var modelo = new PersistenciaDatos.BDlogisticaEntities();
@@ -170,10 +168,7 @@ namespace Dominio.Convertidores
                 }
                 
             }
-
-            
-
-            
+               
             modelo.SaveChanges();
          
 

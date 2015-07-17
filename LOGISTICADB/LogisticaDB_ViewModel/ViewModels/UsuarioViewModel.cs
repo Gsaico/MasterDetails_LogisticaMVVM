@@ -82,12 +82,12 @@ namespace LogisticaDB_ViewModel.ViewModels
             }
         }
 
-        private ObservableCollection<proyectoDTO> listaproyectos;
-        public ObservableCollection<proyectoDTO> ListaProyectos
-        {
-            get { return listaproyectos; }
-            set { listaproyectos = value; RaisePropertyChanged("ListaProyectos"); }
-        }
+        //private ObservableCollection<proyectoDTO> listaproyectos;
+        //public ObservableCollection<proyectoDTO> ListaProyectos
+        //{
+        //    get { return listaproyectos; }
+        //    set { listaproyectos = value; RaisePropertyChanged("ListaProyectos"); }
+        //}
 
         #endregion
 
