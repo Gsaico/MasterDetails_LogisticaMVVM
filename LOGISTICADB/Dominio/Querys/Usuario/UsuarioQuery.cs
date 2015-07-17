@@ -21,8 +21,7 @@ namespace Dominio.Querys
                     var entity = dto.ToEntity();
                     modelo.usuario.Add(entity);
                     modelo.SaveChanges();
-
-                                       
+                                                          
                     return entity.ID_Usuario;
 
 
@@ -42,11 +41,11 @@ namespace Dominio.Querys
                 {
                     var w = modelo.usuario.Where(q => q.ID_Usuario == dto.ID_Usuario).Select(q => q).FirstOrDefault();
                     if (w == null) return false;
+
+                    
+
                     Dominio.Convertidores.usuarioAssembler.Actualizar(dto, w);
                     modelo.SaveChanges();
-
-                 
-
 
                     return true;
                 }
@@ -67,10 +66,10 @@ namespace Dominio.Querys
                     if (x == null) return false;
                     modelo.usuario.Remove(x);
                     modelo.SaveChanges();
-                    //para eliminar el detalle
-                   Dominio.Querys.Proyecto.IProyectoQuery productoquery = new Dominio.Querys.Querys();
 
-                   productoquery.EliminarProyectosXidUsuario(idusuario);
+                    //para eliminar el detalle
+                    Dominio.Querys.Proyecto.IProyectoQuery proyectoquery = new Dominio.Querys.Querys();
+                    proyectoquery.EliminarProyectosXidUsuario(idusuario);
 
                     return true;
                 }

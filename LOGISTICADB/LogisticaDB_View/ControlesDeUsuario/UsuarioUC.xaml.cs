@@ -16,12 +16,9 @@ namespace LogisticaDB_View.ControlesDeUsuario
     {
         public UsuarioUC()
         {
-           // InitializeComponent();           
-          //  this.LayoutRoot.DataContext = new  LogisticaDB_ViewModel.ViewModels.UsuarioViewModel();
-
-            var vm = new LogisticaDB_ViewModel.ViewModels.UsuarioViewModel();
-            this.DataContext = vm;
-            InitializeComponent();
+           InitializeComponent();           
+           this.LayoutRoot.DataContext = new  LogisticaDB_ViewModel.ViewModels.UsuarioViewModel();
+           
         }
     }
 }
