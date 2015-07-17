@@ -42,8 +42,6 @@ namespace Dominio.Querys
                     var w = modelo.usuario.Where(q => q.ID_Usuario == dto.ID_Usuario).Select(q => q).FirstOrDefault();
                     if (w == null) return false;
 
-                    
-
                     Dominio.Convertidores.usuarioAssembler.Actualizar(dto, w);
                     modelo.SaveChanges();
 
@@ -65,11 +63,13 @@ namespace Dominio.Querys
                     PersistenciaDatos.usuario x = modelo.usuario.Where(q => q.ID_Usuario == idusuario).Select(q => q).FirstOrDefault();
                     if (x == null) return false;
                     modelo.usuario.Remove(x);
+                
+                    foreach (var modeloproyectoDTOX in modelo.proyecto.Where(d => d.ID_Usuario == idusuario))
+                    {
+                         modelo.proyecto.Remove(modeloproyectoDTOX);
+                    }
                     modelo.SaveChanges();
-
-                    //para eliminar el detalle
-                    Dominio.Querys.Proyecto.IProyectoQuery proyectoquery = new Dominio.Querys.Querys();
-                    proyectoquery.EliminarProyectosXidUsuario(idusuario);
+                   
 
                     return true;
                 }

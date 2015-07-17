@@ -73,7 +73,7 @@ namespace Dominio.Querys
             {
                 using (var modelo = new PersistenciaDatos.BDlogisticaEntities())
                 {
-                   PersistenciaDatos.proyecto  x = modelo.proyecto.Where(q => q.ID_Usuario == idusuario).Select(q => q).FirstOrDefault ();
+                    PersistenciaDatos.proyecto  x = modelo.proyecto.Where(q => q.ID_Usuario == idusuario).Select(q => q).FirstOrDefault ();
                     if (x == null) return false;
                     modelo.proyecto.Remove(x);
                     modelo.SaveChanges();

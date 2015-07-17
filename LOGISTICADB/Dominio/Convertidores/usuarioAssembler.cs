@@ -123,6 +123,7 @@ namespace Dominio.Convertidores
             entity.estado = dto.estado;
             // entity.proyecto = proyectoEntities;
 
+        
             var modelo = new PersistenciaDatos.BDlogisticaEntities();
 
             foreach (var proyectoDTOX in dto.proyecto)
@@ -136,19 +137,48 @@ namespace Dominio.Convertidores
                 if (proyectoDTOX.ID_Proyecto != 0)
                 {
                     var w = modelo.proyecto.FirstOrDefault(d => d.ID_Proyecto == proyectoDTOX.ID_Proyecto);
-                    if (w != null)
-                    {
-                        Convertidores.proyectoAssembler.Actualizar(proyectoDTOX, w);
-                    }
+                    Convertidores.proyectoAssembler.Actualizar(proyectoDTOX, w);
+                  
                 }
 
             }
 
+            //forma dificil de eliminar revizar con excep
 
-            modelo.SaveChanges();
+            foreach (var modeloproyectoDTOX in modelo.proyecto.Where(d => d.ID_Usuario == dto.ID_Usuario))
+            {
+                bool ExisteEnDTO = false;
+                foreach (var proyectoDTOX in dto.proyecto)
+                {
+                    
+                    if (proyectoDTOX.ID_Proyecto == modeloproyectoDTOX.ID_Proyecto)
+                    {
+                        ExisteEnDTO = true;
+                        break;
+
+                    }
+                    else
+                    {
+                        ExisteEnDTO = false;
+                    }
+
+
+                }
+                if (ExisteEnDTO == false)
+                {
+                    modelo.proyecto.Remove(modeloproyectoDTOX);
+                }
+                
+            }
 
             
 
+            
+            modelo.SaveChanges();
+         
+
         }
+
+        
     }
 }
